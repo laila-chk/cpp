@@ -1,4 +1,4 @@
-Func = PhoneBook.cpp
+Func = phoneBook.cpp
 
 Flags = -Wall -Wextra -Werror -std=c++98
 

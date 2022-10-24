@@ -90,16 +90,14 @@ void	search(PhoneBook* pb)
 
 void	manipulate(PhoneBook* pb, int val)
 {
-  int j;
   std::string inpt;
 
-  j = pb->GetIndx() % 8;
-  if (val == 0)
-    std::cout << "command not found!" << std::endl;
-  else if (val == 1)
+   if (val == 1)
   {
     std::cout << "enter firstName:" << std::endl;
     getline(std::cin, inpt);
+	if (inpt.size() == 0) 
+		std::cout << inpt << "oooooooooo!";
     pb->SetContact("FirstName", inpt);
 
     std::cout << "enter LastName:" << std::endl;
@@ -123,6 +121,8 @@ void	manipulate(PhoneBook* pb, int val)
     search(pb);
 }
 
+//protect empty name..
+
 int main()
 {
   PhoneBook	pb;
@@ -134,9 +134,6 @@ int main()
     if (val == 3)
       break;
     else
-    {		manipulate(&pb, val);
-      std::cout <<"_______________" << pb.GetContact("FirstName", 0) << std::endl;
-    }
+    	manipulate(&pb, val);
   }
-  std::cout << "Exiting ..." << std::endl;
 }

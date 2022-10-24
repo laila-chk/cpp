@@ -108,7 +108,7 @@ class PhoneBook {
 
   public :
     PhoneBook(void);
-   // ~PhoneBook(void);
+    ~PhoneBook(void);
     void	IncrementI();
     int   GetI(void);
     int   GetIndx(void);
@@ -134,12 +134,12 @@ PhoneBook::PhoneBook(void)
   std::cout << "EXIT: to exit" << std::endl;
 }
 
-/*PhoneBook::~PhoneBook(void)
+PhoneBook::~PhoneBook(void)
 {
   std::cout << "Exiting ..." << std::endl;
   return ;
 }
-  */
+
 
 void	PhoneBook::IncrementI()
 {
@@ -162,18 +162,18 @@ int PhoneBook::GetIndx(void)
 void	PhoneBook::SetContact(std::string attr, std::string value)
 {
 
-  if (attr.compare("FirstName"))
+  if (attr.compare("FirstName") == 0)
     con[GetI()].setFirstName(value);
-  else if (attr.compare("LastName"))
+  else if (attr.compare("LastName") == 0)
     con[GetI()].setLastName(value);
-  else if (attr.compare("Nickname"))
+  else if (attr.compare("Nickname") == 0)
     con[GetI()].setNickname(value);
-  else	if (attr.compare("PhoneNumber"))
+  else	if (attr.compare("PhoneNumber") == 0)
     con[GetI()].setPhoneNumber(value);
-  else if (attr.compare("DarkestSecret"))
+  else if (attr.compare("DarkestSecret") == 0)
     con[GetI()].setDarkestSecret(value);
 }
-/**hadi prinmt cotact, i need a real get contactf**/
+
 void	PhoneBook::PrintContact(int i)
 {
   std::cout << con[i].getFirstName() << std::endl;
@@ -185,15 +185,15 @@ void	PhoneBook::PrintContact(int i)
 
 std::string PhoneBook::GetContact(std::string attr, int i)
 {
-   if (attr.compare("FirstName"))
+   if (!attr.compare("FirstName"))
     return(con[i].getFirstName());
-  else if (attr.compare("LastName"))
+  else if (!attr.compare("LastName"))
     return(con[i].getLastName());
-  else if (attr.compare("Nickname"))
+  else if (!attr.compare("Nickname"))
     return(con[i].getNickname());
-  else	if (attr.compare("PhoneNumber"))
+  else	if (!attr.compare("PhoneNumber"))
     return(con[i].getPhoneNumber());
-  else if (attr.compare("DarkestSecret"))
+  else if (!attr.compare("DarkestSecret"))
     return(con[i].getDarkestSecret()); 
   return (NULL);
 }
