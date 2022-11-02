@@ -13,7 +13,20 @@
 
 #include "Zombie.hpp"
 
-void announce (void)
+void Zombie::announce(void)
 {
-    std::cout << this->name << std::endl ;
+    std::cout << this->_name << std::endl ;
+}
+
+void  Zombie::setName(std::string name)
+{
+  this->_name = name;
+}
+
+Zombie* newZombie(std::string name)
+{
+  Zombie* zomZom = new Zombie;
+
+  zomZom->setName(name); 
+  return (zomZom);
 }
