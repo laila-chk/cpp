@@ -8,11 +8,8 @@ name = megaphone
 
 all: $(name)
 	
-$(name) :
+$(name) : $(src)
 	$(CC) $(Flags) $(src) -o $(name)
-
-clean:
-	rm -rf $()
 
 fclean :
 	rm -rf $(name)

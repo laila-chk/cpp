@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone_2.cpp                                    :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 17:58:30 by lchokri           #+#    #+#             */
-/*   Updated: 2022/10/13 12:51:27 by lchokri          ###   ########.fr       */
+/*   Created: 2022/11/03 15:27:06 by lchokri           #+#    #+#             */
+/*   Updated: 2022/11/03 16:04:02 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <string>
 #include <iostream>
+#include <string>
 
-
-int main(int ac, char **av)
+int main(int ac, char** av)
 {
-    if (ac == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    else
-    {
-		for (int j = 1; j < ac; j++)
-		{
-			for (size_t i = 0; i < strlen(av[j]); i++)
-				std::cout << (char)std::toupper(av[j][i]);
-			std::cout << " ";
-		}
-    }
-	std::cout << "\n";
-	return (0);
+  std::string input;
+
+  if (ac == 1)
+    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+  else 
+  {
+    for(int i = 1; i < ac; i++)
+      input += av[i];
+   for (size_t i = 0; i < input.size(); i++)
+      std::cout << (unsigned char)std::toupper(input[i]);
+    std::cout << std::endl;
+  }
 }
