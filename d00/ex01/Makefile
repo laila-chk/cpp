@@ -1,4 +1,4 @@
-Func = phoneBook.cpp
+Func = main.cpp PhoneBook.cpp
 
 Flags = -Wall -Wextra -Werror -std=c++98
 
@@ -8,10 +8,8 @@ name = phoneBook
 
 all: $(name)
 
-$(name) :
+$(name) : $(Func) PhoneBook.hpp 
 	$(CC) $(Flags) $(Func) -o $(name)
-
-clean:
 
 fclean:
 	rm -rf $(name)
