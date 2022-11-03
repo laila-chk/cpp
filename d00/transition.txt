@@ -1,5 +1,0 @@
-class and objects
-STL, Boost Libs
-Templates
-smart ptrs, unique ptrs
-
