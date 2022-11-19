@@ -1,14 +1,14 @@
-SRC = main.cpp Zombie.cpp ZombieHorde.cpp
+SRC = main.cpp 
 
 Flg = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = Zombie
+name = string
 
 all: $(name)
 
-$(name) : $(SRC) Zombie.hpp
+$(name) : $(SRC) 
 	$(CC) $(Flg) $(SRC) -o $(name)
 
 fclean:
