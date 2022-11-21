@@ -4,7 +4,7 @@ Flg = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = file 
+name = violence
 
 all: $(name)
 

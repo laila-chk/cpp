@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 10:51:58 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/21 13:26:20 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/21 16:39:28 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 Weapon::Weapon(std::string wp): _type(wp)
 {
-  std::cout << "weapon was created" << std::endl;
+  std::cout <<getType() + " was created as a weapon ." << std::endl;
   return ;
 }
 
 Weapon::~Weapon()
 {
-  std::cout << "weapon was destroyed" << std::endl;
+  std::cout << getType() + " was destroyed." << std::endl;
   return ;
 }
 void  Weapon::setType(std::string type)
 {
   _type = type;
+  std::cout << getType() + " was set as a weapon ." << std::endl;
 }
   
 std::string Weapon::getType(void)

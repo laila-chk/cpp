@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:45 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/21 13:28:20 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/21 16:39:32 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,17 @@
 
 int main()
 {
-/*  Weapon  club = Weapon("crude spiked club");
+  Weapon  club = Weapon("father's belt");
   HumanA bob("Bob", club);
   bob.attack();
-  club.setType("some other type of club");
+  club.setType("Rock that was on the ground");
   bob.attack();
 
-  */
 
- Weapon club = Weapon("crude spiked club");
   HumanB jim("Jim");
   jim.setWeapon(NULL);
   jim.attack();
-  std::cout << "fff"<< std::endl;
-  club.setType("pooop");
+  club.setType("mother's sandala");
   jim.setWeapon(club);
   jim.attack();
 }

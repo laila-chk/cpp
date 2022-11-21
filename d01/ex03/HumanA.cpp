@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:31:03 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/19 13:14:34 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/21 16:17:38 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 HumanA::HumanA(const std::string& nm, Weapon& wp): _name(nm), _Weapon(wp)
 {
-  return ;
+  std::cout << "a HumanA " + _name +" spawned with a " + _Weapon.getType();
+  std::cout <<" in their hand." << std::endl;
 }
 
 void HumanA::attack(void)
 {
-  std::cout << _name << " attacks with their ";
-  std::cout << _Weapon.getType() << std::endl;
+  std::cout << _name + " attacks with their " + _Weapon.getType() + "."<< std::endl;
 
 }
 
 HumanA::~HumanA()
 {
-  std::cout << "huuman destroyed along with its weapon" << std::endl;
+  std::cout << "humanA destroyed along with its weapon." << std::endl;
 }
 
