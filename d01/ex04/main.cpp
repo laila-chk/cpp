@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:43:54 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/21 09:50:05 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/21 10:17:03 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ int main (int ac, char** av)
   std::string s1 = av[2];
   buff.append(av[1]);
   std::string oFile = buff + ".replace";
+  if (!s1.compare(""))
+  {
+    std::cout << "Error! S1 can't be empty." << std::endl;
+    return 0;
+  }
   std::ifstream ReadFile(av[1]);
-
   std::ofstream writeFile(oFile);
-  
   while (std::getline(ReadFile, buff))
   {
       indx = buff.find(s1);
-      std::cout << indx << "~~" << std::endl;
     while(indx != std::string::npos)
     { 
-      std::cout << indx << "___" << std::endl;
       buff.erase(indx,s1.size());
       buff.insert(indx, av[3]);
       indx = buff.find(s1, indx + 1);
