@@ -11,8 +11,11 @@ all: $(name)
 $(name) : main.cpp
 	$(CC) $(Fg) $(PRG) -o $(name)
 
-fclean :
+clean :
 	rm -rf $(name)
+
+fclean :
+	rm -rf $(name) *.replace
 
 re : fclean all
 
