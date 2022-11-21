@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:02:45 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/20 13:52:42 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/21 13:28:20 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ int main()
 
  Weapon club = Weapon("crude spiked club");
   HumanB jim("Jim");
-  jim.setWeapon();
+  jim.setWeapon(NULL);
   jim.attack();
-  club.setType("rocket launcher");
+  std::cout << "fff"<< std::endl;
+  club.setType("pooop");
+  jim.setWeapon(club);
   jim.attack();
 }

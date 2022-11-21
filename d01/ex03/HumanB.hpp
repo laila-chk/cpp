@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:13:57 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/20 13:55:52 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/21 13:27:54 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class HumanB
     Weapon* _Weap;
   public:
     HumanB(std::string name);
-    ~HumanB(){};
+    ~HumanB();
     void attack(void);
     void setWeapon(Weapon& wp);
-    void setWeapon(std::string);
+    void setWeapon(Weapon *wap);
 };
 
 #endif
