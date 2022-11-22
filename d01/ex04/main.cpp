@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:43:54 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/21 18:21:08 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/22 13:59:36 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int main (int ac, char** av)
     return 1;
   }
   size_t indx = 0;
-  std::string buff;
+  std::string buff(av[1]);
   std::string s1 = av[2];
-  buff.append(av[1]);
+  std::string s2 = av[3];
+
   if (!s1.compare(""))
   {
     std::cout << "Error! S1 can't be empty." << std::endl;
@@ -45,7 +46,8 @@ int main (int ac, char** av)
     { 
       buff.erase(indx,s1.size());
       buff.insert(indx, av[3]);
-      indx = buff.find(s1, indx + 1);
+      indx = buff.find(s1, indx + s2.length());
+      std::cout << indx << std::endl;
     }
     writeFile << buff <<  std::endl;
   }
