@@ -21,8 +21,6 @@ class FixedPt
   private:
     int _val;
     static const int _frac;
-//    |+  - |0.5  |0.25 |0.125|0.0625|..   |     |     |     |     |
-//    |     |     |     |     |      |     |     |     |     |     |
   public:
     FixedPt();   //def constructor
     FixedPt(FixedPt& fp); //copy constructor

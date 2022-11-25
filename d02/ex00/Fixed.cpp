@@ -27,21 +27,23 @@ FixedPt::~FixedPt ()
 
 FixedPt::FixedPt(FixedPt& fp) : _val(fp._val)
 {
-  std::cout << "Default constructor called" <<std::endl;
+  std::cout << "copy constructor called" <<std::endl;
 }
 
 FixedPt FixedPt::operator = (FixedPt& fp)
 {
+  std::cout << "copy assignement operator called" <<std::endl;
   this->_val = fp._val;
   return (*this);
 }
 
 int FixedPt::getRawBits(void) const
 {
-//  std::bitset<8>b(this->_frac);
-  std::cout << this->_val << std::endl;
-  std::cout << this->_frac<< std::endl;
-  return (2);
+  return (this->_val);
 }
 
+void FixedPt::setRawBits(int const raw) 
+{
+  this->_val = raw;
+}
 
