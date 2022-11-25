@@ -1,4 +1,4 @@
-PRG = main.cpp
+PRG = main.cpp Replace.cpp
 
 CC = c++
 
@@ -8,7 +8,7 @@ name = Replace
 
 all: $(name)
 
-$(name) : main.cpp
+$(name) : $(PRG) Replace.hpp 
 	$(CC) $(Fg) $(PRG) -o $(name)
 
 clean :
