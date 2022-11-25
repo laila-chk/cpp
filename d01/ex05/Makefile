@@ -8,7 +8,7 @@ name = Harl
 
 all: $(name)
 
-$(name) : main.cpp
+$(name) : $(PRG) Harl.hpp
 	$(CC) $(Fg) $(PRG) -o $(name)
 
 fclean :
