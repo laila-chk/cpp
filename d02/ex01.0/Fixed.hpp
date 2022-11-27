@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/26 19:08:52 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/27 16:19:09 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define FIXED_HPP
 
 #include <iostream>
-#include <cmath>
 
 class FixedPt
 {
@@ -23,13 +22,24 @@ class FixedPt
     int _val;
     static const int _frac;
   public:
-    FixedPt();   //def constructor
-    FixedPt(const float ft); // constructor overloading
-    FixedPt(const FixedPt& fp); //copy constructor
-    FixedPt operator = (const FixedPt& fp);//copy assignement ob : ClassName operator = (ClassName const &obj) // hadik const hit refrence
+    /***    Construtors     ***/
+    FixedPt();
+    FixedPt(const int num);
+    FixedPt(const float ft);
+
+    FixedPt(FixedPt& fp); //copy constructor
+    FixedPt operator = (const float ft);
+   FixedPt operator= (FixedPt& fp);//copy assignement ob : ClassName operator = (ClassName const &obj) // hadik const hit refrence
+   friend std::ostream& operator<< (std::ostream& os, const FixedPt& obj);
+
     ~FixedPt(); //destructor
+    /****   Methods     *****/
     int    getRawBits(void) const;
     void   setRawBits(int const raw);
+    float toFloat(void) const;
+    int toInt(void) const;
+
+
 };
 
 

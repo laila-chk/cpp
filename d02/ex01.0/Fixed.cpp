@@ -6,43 +6,66 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:23:17 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/26 19:08:55 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/27 16:16:17 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 const int FixedPt::_frac = 8;
+
 FixedPt::FixedPt ()
 {
   _val = 0;
   std::cout << "Default constructor called" <<std::endl;
 }
 
-FixedPt::FixedPt (const float num)
+FixedPt::FixedPt (const int i)
 {
-  float tmp;
-
-  _val = round(num);
-  tmp = num - _val ;
-  std::cout << "Default constructor called" <<std::endl;
+  _val = i << _frac;
+  std::cout << "Default constructor called for an integer." <<std::endl;
+  std::cout <<"this is a test"<<_val;
 }
 
-FixedPt::~FixedPt ()
-{
-  std::cout << "Destructor called" <<std::endl;
+FixedPt::FixedPt (const float ft)
+{ 
+  // we can;t bitshift in here because we have a float; but since we know that shiftting eq to *2^_frac we can do:
+  float tmp = ft;
+
+  for (int i = 0; i < _frac; i++)
+    tmp *= 2;
+  _val = tmp;
+   std::cout << "Default constructor called for a float." <<std::endl;
 }
 
-FixedPt::FixedPt(const FixedPt& fp) : _val(fp._val) 
+FixedPt::FixedPt(FixedPt& fp) 
 {
+  _val = fp._val;
   std::cout << "copy constructor called" <<std::endl;
 }
 
-FixedPt FixedPt::operator = (const FixedPt& fp)
+FixedPt FixedPt::operator = (FixedPt& fp)
 {
   std::cout << "copy assignement operator called" <<std::endl;
   this->_val = fp._val;
   return (*this);
+}
+
+FixedPt FixedPt::operator = (const float ft)
+{
+  std::cout << "copy assignement operator called" <<std::endl;
+  float tmp = ft;
+
+  for (int i = 0; i < _frac; i++)
+    tmp *= 2;
+  _val = tmp;
+  return (*this);
+}
+
+std::ostream& FixedPt::operator<< (std::ostream& os, const FixedPt& obj)
+{
+  os << obj.toFloat();
+  return (os);
 }
 
 int FixedPt::getRawBits(void) const
@@ -54,4 +77,22 @@ void FixedPt::setRawBits(int const raw)
 {
   this->_val = raw;
 }
+
+float FixedPt::toFloat( void ) const
+{
+  float ret =  _val >> _frac ;
+  return (ret);
+}
+
+int FixedPt::toInt( void ) const
+{
+  int ret = _val >> _frac;
+  return (ret);
+}
+
+FixedPt::~FixedPt ()
+{
+  std::cout << "Destructor called" <<std::endl;
+}
+
 
