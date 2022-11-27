@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:23:17 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/27 16:16:17 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/27 19:33:20 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ FixedPt::FixedPt (const float ft)
    std::cout << "Default constructor called for a float." <<std::endl;
 }
 
-FixedPt::FixedPt(FixedPt& fp) 
+FixedPt::FixedPt(FixedPt& fp) :  _val(fp._val )
 {
-  _val = fp._val;
+ 
   std::cout << "copy constructor called" <<std::endl;
 }
 
@@ -62,9 +62,9 @@ FixedPt FixedPt::operator = (const float ft)
   return (*this);
 }
 
-std::ostream& FixedPt::operator<< (std::ostream& os, const FixedPt& obj)
+std::ostream& operator<< (std::ostream& os, const FixedPt& obj)
 {
-  os << obj.toFloat();
+  os<< obj.toFloat();
   return (os);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:12:46 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/25 17:18:10 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/25 18:46:16 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ void  ReplaceString(std::string file, std::string s1, std::string s2)
       buff.insert(pos, s2);
       pos = buff.find(s1, pos + s2.length());
     }
-    writeFile << buff <<  std::endl;
+    writeFile << buff;
+    if (!ReadFile.eof())
+      writeFile <<  std::endl;
   }
 
 }
