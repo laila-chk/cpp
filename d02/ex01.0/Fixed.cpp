@@ -44,16 +44,17 @@ FixedPt::FixedPt(FixedPt& fp) :  _val(fp._val )
   std::cout << "copy constructor called" <<std::endl;
 }
 
-FixedPt FixedPt::operator = (FixedPt& fp)
+FixedPt& FixedPt::operator = (const FixedPt& fp)
 {
   std::cout << "copy assignement operator called" <<std::endl;
   this->_val = fp._val;
   return (*this);
 }
 
-FixedPt FixedPt::operator = (const float ft)
+/*
+FixedPt FixedPt::operator = (float ft)
 {
-  std::cout << "copy assignement operator called" <<std::endl;
+  std::cout << "assignement operator called" <<std::endl;
   float tmp = ft;
 
   for (int i = 0; i < _frac; i++)
@@ -61,6 +62,7 @@ FixedPt FixedPt::operator = (const float ft)
   _val = tmp;
   return (*this);
 }
+*/
 
 std::ostream& operator<< (std::ostream& os, const FixedPt& obj)
 {

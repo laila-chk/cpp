@@ -28,8 +28,9 @@ class FixedPt
     FixedPt(const float ft);
 
     FixedPt(FixedPt& fp); //copy constructor
-    FixedPt operator = (const float ft);
-    FixedPt operator= (FixedPt& fp);
+    FixedPt& operator= (const FixedPt& fp);
+
+ //   FixedPt operator= (float ft);
     ~FixedPt(); //destructor
     /****   Methods     *****/
     int    getRawBits(void) const;

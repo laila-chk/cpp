@@ -28,18 +28,18 @@
  * than 10^x and do the jobn of getting rid of the point that were fixed on 8*/ 
 int main( void ) 
 {
-//    FixedPt a;
-    FixedPt const b( 10 );
-    FixedPt const c( 42.42f );
-    FixedPt const d( b );
-  //  a = FixedPt( 1234.4321f );
-//    std::cout << "a is " << a << std::endl;
-  //  std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-//    std::cout << "d is " << d << std::endl;
- //   std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
- //   std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+   FixedPt const a;
+//   FixedPt b( 10 );
+//    FixedPt c( 42.42f );
+ //   FixedPt d( b );
+    a = FixedPt( 1234.4321f );
+   // std::cout << "a is " << a << std::endl;
+//    std::cout << "b is " << b << std::endl;
+//    std::cout << "c is " << c << std::endl;
+  //  std::cout << "d is " << d << std::endl;
+//    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+//    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+//    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+//    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
     return 0;
   }
