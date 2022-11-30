@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/29 12:13:58 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/30 13:37:02 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,22 @@ class FixedPt
     FixedPt(const int i);
     FixedPt(const float ft);
 
-    FixedPt(FixedPt& fp); //copy constructor
-    FixedPt& operator= (const FixedPt& fp);
+   
+    ~FixedPt();
 
- //   FixedPt operator= (float ft);
-    ~FixedPt(); //destructor
-    /****   Methods     *****/
+/***************************   Methods     **********************************/
+    FixedPt(FixedPt& fp); //copy constructor
+/***************************   Operartors overloading **********************************/
+
+    FixedPt& operator= (const FixedPt& fp);
+    bool operator!= (const FixedPt& fp);
+    bool operator== (const FixedPt& fp);
+
     int    getRawBits(void) const;
     void   setRawBits(int const raw);
     float toFloat(void) const;
     int toInt(void) const;
-
+    
 
 };
 

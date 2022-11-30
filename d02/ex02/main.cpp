@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:33:56 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/30 11:24:02 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/30 13:42:13 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ int main( void )
   std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 
   std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+
+  if (a == b)
+    std::cout<< "comparing a and b: ==:" << std::endl;
+  if (a != b)
+  std::cout<< "comparing a and b: !=:" << std::endl;
   return 0;
 }

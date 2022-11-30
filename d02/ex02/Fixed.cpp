@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:23:17 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/30 11:30:47 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/30 13:37:04 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,28 @@ FixedPt::~FixedPt ()
   std::cout << "Destructor called" <<std::endl;
 }
 
+/************************** Comparison Operartors overloading **********************************/
 
+bool FixedPt::operator!= (const FixedPt& fp)
+{ 
+  if (this->_val != fp._val || this->_frac != fp._val)
+    return true;
+  return false;
+}
+
+bool FixedPt::operator== (const FixedPt& fp)
+{ 
+  if (this->_val == fp._val && this->_frac == fp._val)
+    return true;
+  return false;
+}
+
+/*
+bool FixedPt::operator== (const FixedPt& fp)
+{ 
+  if (this->_val == fp._val && this->_frac == fp._val)
+    return true;
+  return false;
+}
+
+*/
