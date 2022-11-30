@@ -29,20 +29,26 @@
 int main( void ) 
 {
   FixedPt a;
-  FixedPt b( 1.5f );
-  FixedPt c( 42.42f );
+  const FixedPt b( 1.5f );
+ const FixedPt c( 42.42f );
   FixedPt d( b );
   a = FixedPt( 1234.4321f );
   std::cout << "a is " << a << std::endl;
   std::cout << "b is " << b << std::endl;
   std::cout << "c is " << c << std::endl;
-  std::cout << "d is " << d << std::endl;
-  std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-  std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-  std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+  std::cout << "d is " << d << std::endl << std::endl;
 
-  std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+    std::cout<< "c / b "<< c / b << std::endl;
+    std::cout<< "c * b "<< c * b << std::endl;
+    std::cout<< "c++ "<< c++ << std::endl;
+    std::cout<< "c "<< c << std::endl;
+    std::cout<< "++b "<< ++b << std::endl;
+    std::cout<< "b "<< b << std::endl;
 
-    std::cout<< "~~~~~~~~~~~~~~~~~~~"<< c * b << std::endl;
+    if (b < c)
+      std::cout << "c is greater than b " << std::endl;
   return 0;
 }
+
+
+//we have a little prb with the const objects ..

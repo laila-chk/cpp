@@ -160,12 +160,74 @@ FixedPt FixedPt::operator* (const FixedPt& point)
 
 FixedPt FixedPt::operator/ (const FixedPt& point)
 {
+  float tmp = point._val;
   FixedPt res;
-  res._val = (this->_val / point._val);
-//  for (int i = 0; i < _frac; i++)
-//    res._val /= 2;
+  for (int i = 0; i < _frac; i++)
+    tmp /= 2;
+  res._val = (this->_val / tmp);
   return (res);
 }
+
+FixedPt FixedPt::operator++ (int)
+{
+  //this is eq to a.op++(int) which we are returning a new obj
+  FixedPt obj = *this;
+  this->_val++;
+  return (obj);
+}
+
+FixedPt& FixedPt::operator++ ()
+{
+  this->_val++;
+  return (*this);
+}
+
+FixedPt FixedPt::operator-- (int)
+{
+  //this is eq to a.op++(int) which we are returning a new obj
+  FixedPt obj = *this;
+  this->_val--;
+  return (obj);
+}
+
+FixedPt& FixedPt::operator-- ()
+{
+  this->_val--;
+  return (*this);
+}
+
+FixedPt& FixedPt::min(FixedPt& one, FixedPt& two)
+{
+  if (one < two)
+    return (one);
+  return (two);
+}
+/*
+FixedPt& FixedPt::min(const FixedPt& one, const FixedPt& two)
+{
+  if (one < two)
+//    return (one);
+//  return (two);
+}
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

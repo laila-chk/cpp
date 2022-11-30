@@ -53,6 +53,15 @@ class FixedPt
     FixedPt operator/ (const FixedPt& fp);
 
 
+    FixedPt operator++ (int);
+    FixedPt& operator++ ();
+    FixedPt operator-- (int);
+    FixedPt& operator-- ();
+
+
+FixedPt& min(FixedPt& one, FixedPt& two);
+FixedPt& min(const FixedPt& one, const FixedPt& two);
+
     int    getRawBits(void) const;
     void   setRawBits(int const raw);
     float toFloat(void) const;
