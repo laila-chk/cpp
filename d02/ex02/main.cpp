@@ -29,7 +29,7 @@
 int main( void ) 
 {
   FixedPt a;
-  FixedPt b( 10 );
+  FixedPt b( 1.5f );
   FixedPt c( 42.42f );
   FixedPt d( b );
   a = FixedPt( 1234.4321f );
@@ -43,9 +43,6 @@ int main( void )
 
   std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 
-  if (a == b)
-    std::cout<< "comparing a and b: ==:" << std::endl;
-  if (a != b)
-  std::cout<< "comparing a and b: !=:" << std::endl;
+    std::cout<< "~~~~~~~~~~~~~~~~~~~"<< c * b << std::endl;
   return 0;
 }

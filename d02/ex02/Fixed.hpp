@@ -33,17 +33,31 @@ class FixedPt
 
 /***************************   Methods     **********************************/
     FixedPt(FixedPt& fp); //copy constructor
-/***************************   Operartors overloading **********************************/
-
     FixedPt& operator= (const FixedPt& fp);
+
+/*************************** comparing Operartors overloading **********************************/
+
     bool operator!= (const FixedPt& fp);
     bool operator== (const FixedPt& fp);
+    bool operator>= (const FixedPt& fp);
+    bool operator<= (const FixedPt& fp);
+    bool operator< (const FixedPt& fp);
+    bool operator> (const FixedPt& fp);
+
+/*************************** Arithmetic Operartors overloading **********************************/
+    
+
+    FixedPt operator+ (const FixedPt& fp);
+    FixedPt operator- (const FixedPt& fp);
+    FixedPt operator* (const FixedPt& fp);
+    FixedPt operator/ (const FixedPt& fp);
+
 
     int    getRawBits(void) const;
     void   setRawBits(int const raw);
     float toFloat(void) const;
     int toInt(void) const;
-    
+
 
 };
 

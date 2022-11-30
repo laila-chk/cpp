@@ -88,24 +88,85 @@ FixedPt::~FixedPt ()
 
 bool FixedPt::operator!= (const FixedPt& fp)
 { 
-  if (this->_val != fp._val || this->_frac != fp._val)
+  if (this->toFloat() != fp.toFloat())
     return true;
   return false;
 }
 
 bool FixedPt::operator== (const FixedPt& fp)
 { 
-  if (this->_val == fp._val && this->_frac == fp._val)
+  if (this->toFloat() == fp.toFloat())
     return true;
   return false;
 }
 
-/*
-bool FixedPt::operator== (const FixedPt& fp)
+bool FixedPt::operator <= (const FixedPt& fp)
 { 
-  if (this->_val == fp._val && this->_frac == fp._val)
+  if (this->toFloat() <= fp.toFloat())
     return true;
   return false;
 }
 
-*/
+bool FixedPt::operator >= (const FixedPt& fp)
+{ 
+  if (this->toFloat() >= fp.toFloat())
+    return true;
+  return false;
+}
+
+bool FixedPt::operator < (const FixedPt& fp)
+{ 
+  if (this->toFloat() < fp.toFloat())
+    return true;
+  return false;
+}
+
+bool FixedPt::operator > (const FixedPt& fp)
+{ 
+  if (this->toFloat() > fp.toFloat())
+    return true;
+  return false;
+}
+
+/************************** Arithmetic Operartors overloading **********************************/
+
+ FixedPt FixedPt::operator+ (const FixedPt& point)
+{
+  //the reason why we are creating a new floating point and returning it instead of this pointer like we did in 
+  //the assigenement operator, is that the result is an individual obj, op= changes the obj on the left, that's why
+  //we should change and return this, while here, not the right nor the left obj should be changed
+
+  FixedPt add;
+  add._val = this->_val + point._val; 
+  return (add);
+}
+
+FixedPt FixedPt::operator- (const FixedPt& point)
+{
+  FixedPt sub;
+  sub._val = this->_val - point._val; 
+  return (sub);
+}
+
+FixedPt FixedPt::operator* (const FixedPt& point)
+{
+  FixedPt res;
+  res._val = (this->_val * point._val);
+  for (int i = 0; i < _frac; i++)
+    res._val /= 2;
+  return (res);
+}
+
+
+FixedPt FixedPt::operator/ (const FixedPt& point)
+{
+  FixedPt res;
+  res._val = (this->_val / point._val);
+//  for (int i = 0; i < _frac; i++)
+//    res._val /= 2;
+  return (res);
+}
+
+
+
+
