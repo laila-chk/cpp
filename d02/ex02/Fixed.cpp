@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:23:17 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/27 19:33:20 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/30 11:30:47 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,16 @@ FixedPt::FixedPt (const int i)
 {
   _val = i << _frac;
   std::cout << "Default constructor called for an integer." <<std::endl;
-  std::cout <<"this is a test"<<_val;
 }
 
-FixedPt::FixedPt (const float ft)
-{ 
-  // we can;t bitshift in here because we have a float; but since we know that shiftting eq to *2^_frac we can do:
-  float tmp = ft;
-
+FixedPt::FixedPt (const float flt)
+{
+  float ft = flt;
+  std::cout << "Default constructor called for a float." <<std::endl;
   for (int i = 0; i < _frac; i++)
-    tmp *= 2;
-  _val = tmp;
-   std::cout << "Default constructor called for a float." <<std::endl;
-}
+    ft *= 2;
+   _val = roundf(ft);
+ }
 
 FixedPt::FixedPt(FixedPt& fp) :  _val(fp._val )
 {
@@ -50,19 +47,6 @@ FixedPt& FixedPt::operator = (const FixedPt& fp)
   this->_val = fp._val;
   return (*this);
 }
-
-/*
-FixedPt FixedPt::operator = (float ft)
-{
-  std::cout << "assignement operator called" <<std::endl;
-  float tmp = ft;
-
-  for (int i = 0; i < _frac; i++)
-    tmp *= 2;
-  _val = tmp;
-  return (*this);
-}
-*/
 
 std::ostream& operator<< (std::ostream& os, const FixedPt& obj)
 {
@@ -82,13 +66,16 @@ void FixedPt::setRawBits(int const raw)
 
 float FixedPt::toFloat( void ) const
 {
-  float ret =  _val >> _frac ;
-  return (ret);
+  float ft = _val;
+
+  for (int i = 0; i < _frac; i++)
+    ft /= 2;
+  return (ft);
 }
 
 int FixedPt::toInt( void ) const
 {
-  int ret = _val >> _frac;
+    int ret = _val >> _frac;
   return (ret);
 }
 

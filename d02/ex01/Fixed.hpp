@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/26 17:04:37 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/29 12:13:58 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,27 @@ class FixedPt
     int _val;
     static const int _frac;
   public:
-    FixedPt(const int val);   //def constructor
-    FixedPt(const float num);
+    /***    Construtors     ***/
+    FixedPt();
+    FixedPt(const int i);
+    FixedPt(const float ft);
+
     FixedPt(FixedPt& fp); //copy constructor
-    FixedPt operator= (FixedPt& fp);//copy assignement ob : ClassName operator = (ClassName const &obj) // hadik const hit refrence
+    FixedPt& operator= (const FixedPt& fp);
+
+ //   FixedPt operator= (float ft);
     ~FixedPt(); //destructor
+    /****   Methods     *****/
     int    getRawBits(void) const;
     void   setRawBits(int const raw);
-    float toFloat( void ) const;
-    int toInt( void ) const;
+    float toFloat(void) const;
+    int toInt(void) const;
+
+
 };
 
 
+std::ostream& operator<< (std::ostream& os, const FixedPt& obj);
 
 
 #endif

@@ -1,10 +1,10 @@
-Func = main.cpp Fixed.cpp
+Func = main.cpp Fixed.cpp 
 
 Flags = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = fixed
+name = fixed 
 
 all: $(name)
 

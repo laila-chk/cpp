@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/27 19:33:24 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/11/29 12:13:58 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class FixedPt
 {
