@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:33:56 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/30 13:42:13 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/01 12:15:13 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,24 @@
 int main( void ) 
 {
   FixedPt a;
-  const FixedPt b( 1.5f );
- const FixedPt c( 42.42f );
-  FixedPt d( b );
+ const FixedPt b( 1.5f );
+  const FixedPt c( -42.42f );
+ // FixedPt d( b );
   a = FixedPt( 1234.4321f );
   std::cout << "a is " << a << std::endl;
   std::cout << "b is " << b << std::endl;
   std::cout << "c is " << c << std::endl;
-  std::cout << "d is " << d << std::endl << std::endl;
+//  std::cout << "d is " << d << std::endl << std::endl;
 
-    std::cout<< "c / b "<< c / b << std::endl;
-    std::cout<< "c * b "<< c * b << std::endl;
-    std::cout<< "c++ "<< c++ << std::endl;
-    std::cout<< "c "<< c << std::endl;
-    std::cout<< "++b "<< ++b << std::endl;
-    std::cout<< "b "<< b << std::endl;
+  std::cout<< "c / b "<< c / b << std::endl;
+  std::cout<< "c * b "<< c * b << std::endl;
+//  std::cout<< "c++ "<< c++ << std::endl;
+  std::cout<< "c "<< c << std::endl;
+//  std::cout<< "++b "<< ++b << std::endl;
+  std::cout<< "b "<< b << std::endl;
 
-    if (b < c)
-      std::cout << "c is greater than b " << std::endl;
+  if (b < c)
+    std::cout << "c is greater than b " << std::endl;
   return 0;
 }
 

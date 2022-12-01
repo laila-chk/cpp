@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:23:17 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/30 13:37:04 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/01 12:14:41 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,42 +86,43 @@ FixedPt::~FixedPt ()
 
 /************************** Comparison Operartors overloading **********************************/
 
-bool FixedPt::operator!= (const FixedPt& fp)
+bool FixedPt::operator!= (const FixedPt& fp) const
 { 
   if (this->toFloat() != fp.toFloat())
     return true;
   return false;
 }
 
-bool FixedPt::operator== (const FixedPt& fp)
+bool FixedPt::operator== (const FixedPt& fp) const
 { 
   if (this->toFloat() == fp.toFloat())
     return true;
   return false;
 }
 
-bool FixedPt::operator <= (const FixedPt& fp)
+bool FixedPt::operator <= (const FixedPt& fp) const
+
 { 
   if (this->toFloat() <= fp.toFloat())
     return true;
   return false;
 }
 
-bool FixedPt::operator >= (const FixedPt& fp)
+bool FixedPt::operator >= (const FixedPt& fp) const
 { 
   if (this->toFloat() >= fp.toFloat())
     return true;
   return false;
 }
 
-bool FixedPt::operator < (const FixedPt& fp)
+bool FixedPt::operator < (const FixedPt& fp) const
 { 
   if (this->toFloat() < fp.toFloat())
     return true;
   return false;
 }
 
-bool FixedPt::operator > (const FixedPt& fp)
+bool FixedPt::operator > (const FixedPt& fp) const
 { 
   if (this->toFloat() > fp.toFloat())
     return true;
@@ -130,7 +131,7 @@ bool FixedPt::operator > (const FixedPt& fp)
 
 /************************** Arithmetic Operartors overloading **********************************/
 
- FixedPt FixedPt::operator+ (const FixedPt& point)
+ FixedPt FixedPt::operator+ (const FixedPt& point)const 
 {
   //the reason why we are creating a new floating point and returning it instead of this pointer like we did in 
   //the assigenement operator, is that the result is an individual obj, op= changes the obj on the left, that's why
@@ -141,14 +142,14 @@ bool FixedPt::operator > (const FixedPt& fp)
   return (add);
 }
 
-FixedPt FixedPt::operator- (const FixedPt& point)
+FixedPt FixedPt::operator- (const FixedPt& point)const 
 {
   FixedPt sub;
   sub._val = this->_val - point._val; 
   return (sub);
 }
 
-FixedPt FixedPt::operator* (const FixedPt& point)
+FixedPt FixedPt::operator* (const FixedPt& point)const 
 {
   FixedPt res;
   res._val = (this->_val * point._val);
@@ -158,7 +159,7 @@ FixedPt FixedPt::operator* (const FixedPt& point)
 }
 
 
-FixedPt FixedPt::operator/ (const FixedPt& point)
+FixedPt FixedPt::operator/ (const FixedPt& point) const
 {
   float tmp = point._val;
   FixedPt res;
@@ -202,18 +203,32 @@ FixedPt& FixedPt::min(FixedPt& one, FixedPt& two)
     return (one);
   return (two);
 }
-/*
-FixedPt& FixedPt::min(const FixedPt& one, const FixedPt& two)
+
+FixedPt& FixedPt::max(FixedPt& one, FixedPt& two)
 {
   if (one < two)
-//    return (one);
-//  return (two);
+    return (two);
+  return (one);
+}
+
+const FixedPt& FixedPt::min(const FixedPt& one, const FixedPt& two)
+{
+  if (one < two)
+    return (one);
+  return (two);
+}
+
+
+const FixedPt& FixedPt::max(const FixedPt& one, const FixedPt& two)
+{
+  if (one < two)
+    return (two);
+  return (one);
 }
 
 
 
 
-*/
 
 
 

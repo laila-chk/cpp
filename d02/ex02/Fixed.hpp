@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/30 13:37:02 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/01 12:14:38 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,29 @@ class FixedPt
     FixedPt(const int i);
     FixedPt(const float ft);
 
-   
+
     ~FixedPt();
 
-/***************************   Methods     **********************************/
+    /***************************   Methods     **********************************/
     FixedPt(FixedPt& fp); //copy constructor
     FixedPt& operator= (const FixedPt& fp);
 
-/*************************** comparing Operartors overloading **********************************/
+    /*************************** comparing Operartors overloading **********************************/
 
-    bool operator!= (const FixedPt& fp);
-    bool operator== (const FixedPt& fp);
-    bool operator>= (const FixedPt& fp);
-    bool operator<= (const FixedPt& fp);
-    bool operator< (const FixedPt& fp);
-    bool operator> (const FixedPt& fp);
+    bool operator!= (const FixedPt& fp) const;
+    bool operator== (const FixedPt& fp) const;
+    bool operator>= (const FixedPt& fp) const;
+    bool operator<= (const FixedPt& fp) const;
+    bool operator< (const FixedPt& fp) const;
+    bool operator> (const FixedPt& fp) const;
 
-/*************************** Arithmetic Operartors overloading **********************************/
-    
+    /*************************** Arithmetic Operartors overloading **********************************/
 
-    FixedPt operator+ (const FixedPt& fp);
-    FixedPt operator- (const FixedPt& fp);
-    FixedPt operator* (const FixedPt& fp);
-    FixedPt operator/ (const FixedPt& fp);
+
+    FixedPt operator+ (const FixedPt& fp) const;
+    FixedPt operator- (const FixedPt& fp) const;
+    FixedPt operator* (const FixedPt& fp) const;
+    FixedPt operator/ (const FixedPt& fp) const;
 
 
     FixedPt operator++ (int);
@@ -59,8 +59,10 @@ class FixedPt
     FixedPt& operator-- ();
 
 
-FixedPt& min(FixedPt& one, FixedPt& two);
-FixedPt& min(const FixedPt& one, const FixedPt& two);
+    FixedPt& min(FixedPt& one, FixedPt& two);
+    const FixedPt& min(const FixedPt& one, const FixedPt& two);
+    FixedPt& max(FixedPt& one, FixedPt& two);
+    const FixedPt& max(const FixedPt& one, const FixedPt& two);
 
     int    getRawBits(void) const;
     void   setRawBits(int const raw);
