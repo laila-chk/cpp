@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/01 12:14:38 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/03 17:39:09 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ class FixedPt
     FixedPt& operator-- ();
 
 
-    FixedPt& min(FixedPt& one, FixedPt& two);
-    const FixedPt& min(const FixedPt& one, const FixedPt& two);
-    FixedPt& max(FixedPt& one, FixedPt& two);
-    const FixedPt& max(const FixedPt& one, const FixedPt& two);
+    static FixedPt& min(FixedPt& one, FixedPt& two);
+    static  const FixedPt& min(const FixedPt& one, const FixedPt& two);
+    static FixedPt& max(FixedPt& one, FixedPt& two);
+    static const FixedPt& max(const FixedPt& one, const FixedPt& two);
 
     int    getRawBits(void) const;
     void   setRawBits(int const raw);

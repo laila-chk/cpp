@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:33:56 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/01 12:15:13 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/03 17:40:21 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int main( void )
 
   if (b < c)
     std::cout << "c is greater than b " << std::endl;
+  std::cout << FixedPt::max( a, b ) << std::endl;
   return 0;
 }
 
