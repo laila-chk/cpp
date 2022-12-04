@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:55:12 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/04 19:06:58 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/04 18:15:54 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-/*  ClapTrap trash("trash");
+  ClapTrap trash("trash");
 
   trash.attack("dalw");
   trash.takeDamage(5);
@@ -23,7 +23,7 @@ int main()
   trash.takeDamage(5);
   trash.takeDamage(5);
   trash.beRepaired(10);
-*/
+
   std::cout << "----------------------------------------------------------"<<std::endl;
 
   ScavTrap bella("buena");
@@ -31,8 +31,8 @@ int main()
  bella.attack("dalw");
   bella.takeDamage(5);
   bella.beRepaired(10);
-  bella.takeDamage(60);
-  bella.takeDamage(800);
+  bella.takeDamage(10);
+  bella.takeDamage(50);
   bella.takeDamage(5);
   bella.beRepaired(10);
   bella.guardGate();

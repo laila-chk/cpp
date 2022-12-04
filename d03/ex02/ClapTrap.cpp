@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:52:31 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/04 19:13:19 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/04 18:15:32 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,39 +23,38 @@ ClapTrap::ClapTrap(std::string name): _name(name)
 
 ClapTrap::~ClapTrap()
 {
-  std::cout << "ClapTrap "+_name +" is going out of scope .."<< std::endl;
+  std::cout << _name +" is going out of scope .."<< std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
-  if (this->EnergyPts > 0 && this->HitPts > 0)
-    std::cout << "ClapTrap "<< _name << " attacked "<< target<< " and caused "<< AttackDmg<< " points of damage " << std::endl;
+  if (EnergyPts && HitPts)
+    std::cout << _name << " attacked "<< target<< " and caused "<< AttackDmg<< " points of damage " << std::endl;
   else
-    std::cout << "beep beep! Low battery. "<< _name << " Can't attack" << std::endl;
+    std::cout << "beep beep! Low battery. Can't attack" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-  if (this->EnergyPts > 0 && this->HitPts > 0)
+  if (EnergyPts && HitPts)
   {
-    std::cout << "ClapTrap "<< _name << " repaired itself" << std::endl;
+    std::cout << _name << " repaired itself" << std::endl;
     HitPts += amount;
     EnergyPts--;
   }
   else
-    std::cout << "beep beep! Low battery. "<< _name << " Can't repaire " << std::endl;
+    std::cout << "beep beep! Low battery. Can't repaire " << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-  if (this->EnergyPts > 0 && this->HitPts > 0)
+  if (EnergyPts && HitPts)
   {
-    std::cout << "Eneg: "<< this->EnergyPts << " hit: "<< this->HitPts<<std::endl;
-    std::cout << "ClapTrap "<< _name << " received "<< amount <<" damage points" << std::endl;
+    std::cout << _name << " received "<< amount <<" damage points" << std::endl;
     HitPts -= amount;
   }
   else
-   std::cout << "ClapTrap "<< _name <<" is already dead!! Can't Take damage.." << std::endl;
+   std::cout << _name +" is already dead!! Can't Take damage.." << std::endl;
 
 }
 
