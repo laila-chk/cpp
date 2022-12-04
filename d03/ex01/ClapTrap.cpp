@@ -54,6 +54,47 @@ void ClapTrap::takeDamage(unsigned int amount)
     HitPts -= amount;
   }
   else
-   std::cout << "TrapClap is already dead!! Can't Take damage.." << std::endl;
+   std::cout << "ClapTrap is already dead!! Can't Take damage.." << std::endl;
 
 }
+
+int  ClapTrap::getHitPts(void)
+{
+  return(this->HitPts);
+}
+
+int ClapTrap::getEnergy(void)
+{
+  return (this->EnergyPts);
+}
+
+int ClapTrap::getDmg(void)
+{
+  return(this->AttackDmg);
+}
+
+void ClapTrap::setHitPts(int HitPts)
+{
+  this->HitPts = HitPts;
+}
+
+void ClapTrap::setEnergy(int Eng)
+{
+  this->EnergyPts = Eng;
+}
+
+void ClapTrap::setDmg(int dmg)
+{
+  this->AttackDmg = dmg;
+}
+
+void  ClapTrap::setName(std::string name)
+{
+  this->_name = name;
+}
+
+std::string ClapTrap::getName(void)
+{
+  return(_name);
+}
+

@@ -54,6 +54,6 @@ void ClapTrap::takeDamage(unsigned int amount)
     HitPts -= amount;
   }
   else
-   std::cout << "TrapClap is already dead!! Can't Take damage.." << std::endl;
+   std::cout << "ClapTrap is already dead!! Can't Take damage.." << std::endl;
 
 }

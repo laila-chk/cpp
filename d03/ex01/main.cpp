@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
@@ -23,4 +23,19 @@ int main()
   trash.takeDamage(5);
   trash.takeDamage(5);
   trash.beRepaired(10);
+
+  std::cout << "----------------------------------------------------------"<<std::endl;
+
+  ScavTrap bella("buena");
+
+ bella.attack("dalw");
+  bella.takeDamage(5);
+  bella.beRepaired(10);
+  bella.takeDamage(10);
+  bella.takeDamage(5);
+  bella.takeDamage(5);
+  bella.beRepaired(10);
+  bella.guardGate();
+
+
 }
