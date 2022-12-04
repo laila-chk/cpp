@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:52:31 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/03 20:09:51 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/04 22:41:37 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,24 @@ ClapTrap::ClapTrap(std::string name): _name(name)
   HitPts = 10;
   EnergyPts = 10;
   AttackDmg = 10;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& Clp)
+{
+  this->_name = Clp._name;
+  this->HitPts = Clp.HitPts;
+  this->EnergyPts = Clp.EnergyPts;
+  this->AttackDmg = Clp.AttackDmg;
+}
+
+ClapTrap& ClapTrap::operator= (const ClapTrap& Clp)
+{
+  std::cout << "Assignment operator called " << std::endl;
+  this->_name = Clp._name;
+  this->HitPts = Clp.HitPts;
+  this->EnergyPts = Clp.EnergyPts;
+  this->AttackDmg = Clp.AttackDmg;
+  return (*this);
 }
 
 ClapTrap::~ClapTrap()

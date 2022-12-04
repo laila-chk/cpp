@@ -1,10 +1,10 @@
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp 
 
 Flg = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = Scav
+name = Scav 
 
 all: $(name)
 

@@ -1,14 +1,14 @@
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp FragTrap.cpp 
 
 Flg = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = Scav
+name = Frag
 
 all: $(name)
 
-$(name) : $(SRC) ClapTrap.hpp ScavTrap.hpp
+$(name) : $(SRC) ClapTrap.hpp FragTrap.hpp
 	$(CC) $(Flg) $(SRC) -o $(name)
 
 fclean:

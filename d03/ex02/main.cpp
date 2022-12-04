@@ -6,11 +6,11 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:55:12 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/04 18:15:54 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/04 22:33:16 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
@@ -23,19 +23,16 @@ int main()
   trash.takeDamage(5);
   trash.takeDamage(5);
   trash.beRepaired(10);
+   std::cout << "----------------------------------------------------------"<<std::endl;
 
-  std::cout << "----------------------------------------------------------"<<std::endl;
-
-  ScavTrap bella("buena");
+  FragTrap bella("buena");
 
  bella.attack("dalw");
   bella.takeDamage(5);
   bella.beRepaired(10);
-  bella.takeDamage(10);
-  bella.takeDamage(50);
+  bella.takeDamage(60);
+  bella.takeDamage(800);
   bella.takeDamage(5);
   bella.beRepaired(10);
-  bella.guardGate();
-
-
+  bella.highFivesGuys();
 }

@@ -6,19 +6,41 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:52:31 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/04 19:13:19 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/04 22:48:49 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+  std::cout << "ClapTrap Constructor is Called." << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name): _name(name)
 {
-  std::cout << "Constructor is Called, initializing values..." << std::endl;
+  std::cout << "ClapTrap " + _name + " Constructor is Called." << std::endl;
   HitPts = 10;
   EnergyPts = 10;
   AttackDmg = 10;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& Clp)
+{
+  this->_name = Clp._name;
+  this->HitPts = Clp.HitPts;
+  this->EnergyPts = Clp.EnergyPts;
+  this->AttackDmg = Clp.AttackDmg;
+}
+
+ClapTrap& ClapTrap::operator= (const ClapTrap& Clp)
+{
+  std::cout << "Assignment operator called " << std::endl;
+  this->_name = Clp._name;
+  this->HitPts = Clp.HitPts;
+  this->EnergyPts = Clp.EnergyPts;
+  this->AttackDmg = Clp.AttackDmg;
+  return (*this);
 }
 
 ClapTrap::~ClapTrap()
@@ -31,71 +53,29 @@ void ClapTrap::attack(const std::string& target)
   if (this->EnergyPts > 0 && this->HitPts > 0)
     std::cout << "ClapTrap "<< _name << " attacked "<< target<< " and caused "<< AttackDmg<< " points of damage " << std::endl;
   else
-    std::cout << "beep beep! Low battery. "<< _name << " Can't attack" << std::endl;
+    std::cout << "beep beep! Low battery. Can't attack" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
   if (this->EnergyPts > 0 && this->HitPts > 0)
   {
-    std::cout << "ClapTrap "<< _name << " repaired itself" << std::endl;
+    std::cout << _name << " repaired " << amount << " points."<< std::endl;
     HitPts += amount;
     EnergyPts--;
   }
   else
-    std::cout << "beep beep! Low battery. "<< _name << " Can't repaire " << std::endl;
+    std::cout << "beep beep! Low battery. "+ _name + " Can't repaire " << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
   if (this->EnergyPts > 0 && this->HitPts > 0)
   {
-    std::cout << "Eneg: "<< this->EnergyPts << " hit: "<< this->HitPts<<std::endl;
-    std::cout << "ClapTrap "<< _name << " received "<< amount <<" damage points" << std::endl;
+    std::cout <<  _name << " received "<< amount <<" damage points" << std::endl;
     HitPts -= amount;
   }
   else
-   std::cout << "ClapTrap "<< _name <<" is already dead!! Can't Take damage.." << std::endl;
+   std::cout <<_name +" is already dead!! Can't Take damage.." << std::endl;
 
 }
-
-int  ClapTrap::getHitPts(void)
-{
-  return(this->HitPts);
-}
-
-int ClapTrap::getEnergy(void)
-{
-  return (this->EnergyPts);
-}
-
-int ClapTrap::getDmg(void)
-{
-  return(this->AttackDmg);
-}
-
-void ClapTrap::setHitPts(int HitPts)
-{
-  this->HitPts = HitPts;
-}
-
-void ClapTrap::setEnergy(int Eng)
-{
-  this->EnergyPts = Eng;
-}
-
-void ClapTrap::setDmg(int dmg)
-{
-  this->AttackDmg = dmg;
-}
-
-void  ClapTrap::setName(std::string name)
-{
-  this->_name = name;
-}
-
-std::string ClapTrap::getName(void)
-{
-  return(_name);
-}
-
