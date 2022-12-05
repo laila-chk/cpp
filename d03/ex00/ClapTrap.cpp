@@ -12,13 +12,22 @@
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+  std::cout << "Constructor is Called, initializing values..." << std::endl;
+  _name = "noName";
+  HitPts = 10;
+  EnergyPts = 10;
+  AttackDmg = 10;
+}
 
 ClapTrap::ClapTrap(std::string name): _name(name)
 {
   std::cout << "Constructor is Called, initializing values..." << std::endl;
+  _name = name;
   HitPts = 10;
   EnergyPts = 10;
-  AttackDmg = 10;
+  AttackDmg = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& Clp)
@@ -46,15 +55,18 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-  if (EnergyPts && HitPts)
-    std::cout << "ClapTrap "<< _name << " attacked "<< target<< " and caused "<< AttackDmg<< " points of damage " << std::endl;
+  if (this->EnergyPts > 0 && this->HitPts > 0)
+    {
+       std::cout << "ClapTrap "<< _name << " attacked "<< target<< " and caused "<< AttackDmg<< " points of damage " << std::endl;
+       EnergyPts--;
+    }
   else
     std::cout << "beep beep! Low battery. Can't attack" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-  if (EnergyPts && HitPts)
+  if (this->EnergyPts > 0 && this->HitPts > 0)
   {
     std::cout << "ClapTrap "<< _name << " repaired itself" << std::endl;
     HitPts += amount;
@@ -66,7 +78,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-  if (EnergyPts && HitPts)
+  if (HitPts > 0)
   {
     std::cout << "ClapTrap "<< _name << " received "<< amount <<" damage points" << std::endl;
     HitPts -= amount;

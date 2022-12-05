@@ -13,6 +13,15 @@
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap()
+{
+  this->_name = "noName";
+  this->HitPts = 100;
+  this->EnergyPts = 100;
+  this->AttackDmg = 30;
+   std::cout << "FragTrap " + _name + " is constructed" << std::endl;
+}
+
 FragTrap::FragTrap(std::string name): ClapTrap(name) 
 {
   std::cout << "FragTrap " + _name + " is constructed" << std::endl;
@@ -22,7 +31,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
   this->AttackDmg = 30;
 }
 
-FragTrap::FragTrap(const FragTrap& Frg): ClapTrap() 
+FragTrap::FragTrap(const FragTrap& Frg)
 {
   this->_name = Frg._name;
   this->HitPts = Frg.HitPts;

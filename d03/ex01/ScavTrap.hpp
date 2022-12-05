@@ -7,11 +7,12 @@ class ScavTrap : public ClapTrap
 {
 
   public :
-    void attack(const std::string& target);
+    ScavTrap();
     ScavTrap(std::string name);
     ScavTrap(const ScavTrap& Scav);
     ScavTrap& operator= (const ScavTrap& Scav);
     ~ScavTrap();
+    void attack(const std::string& target);
     void guardGate();
 };
 

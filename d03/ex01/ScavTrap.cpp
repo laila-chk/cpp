@@ -12,6 +12,15 @@
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap() 
+{
+  this->_name = "noName";
+  this->HitPts = 100;
+  this->EnergyPts = 50;
+  this->AttackDmg = 20;
+  std::cout << "ScavTrap " + _name + " is constructed" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name): ClapTrap(name) 
 {
   std::cout << "ScavTrap " + _name + " is constructed" << std::endl;
@@ -21,7 +30,8 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
   this->AttackDmg = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& Frg): ClapTrap()
+
+ScavTrap::ScavTrap(const ScavTrap& Frg)
 {
   this->_name = Frg._name;
   this->HitPts = Frg.HitPts;

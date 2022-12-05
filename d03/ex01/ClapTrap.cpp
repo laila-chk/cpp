@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 17:52:31 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/04 22:48:49 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/05 23:29:41 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 ClapTrap::ClapTrap()
 {
   std::cout << "ClapTrap Constructor is Called." << std::endl;
+   _name = "noName";
+  HitPts = 10;
+  EnergyPts = 10;
+  AttackDmg = 0;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name)
@@ -51,7 +55,11 @@ ClapTrap::~ClapTrap()
 void ClapTrap::attack(const std::string& target)
 {
   if (this->EnergyPts > 0 && this->HitPts > 0)
+  {
     std::cout << "ClapTrap "<< _name << " attacked "<< target<< " and caused "<< AttackDmg<< " points of damage " << std::endl;
+    EnergyPts--;
+  }
+    
   else
     std::cout << "beep beep! Low battery. Can't attack" << std::endl;
 }
@@ -70,12 +78,11 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-  if (this->EnergyPts > 0 && this->HitPts > 0)
+  if (this->HitPts > 0)
   {
     std::cout <<  _name << " received "<< amount <<" damage points" << std::endl;
     HitPts -= amount;
   }
   else
    std::cout <<_name +" is already dead!! Can't Take damage.." << std::endl;
-
 }

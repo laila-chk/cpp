@@ -13,6 +13,7 @@ class ClapTrap
     int EnergyPts;
     int AttackDmg;
   public:
+    ClapTrap();
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap& CT);
     ClapTrap& operator= (const ClapTrap& Clap);
