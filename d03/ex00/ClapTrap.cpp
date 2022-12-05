@@ -18,7 +18,7 @@ ClapTrap::ClapTrap()
   _name = "noName";
   HitPts = 10;
   EnergyPts = 10;
-  AttackDmg = 10;
+  AttackDmg = 0;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name)
