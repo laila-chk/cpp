@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/29 12:13:58 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/05 12:43:20 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class FixedPt
     FixedPt(const int i);
     FixedPt(const float ft);
 
-    FixedPt(FixedPt& fp); //copy constructor
+    FixedPt(const FixedPt& fp); //copy constructor
     FixedPt& operator= (const FixedPt& fp);
 
  //   FixedPt operator= (float ft);

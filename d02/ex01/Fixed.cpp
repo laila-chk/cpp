@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:23:17 by lchokri           #+#    #+#             */
-/*   Updated: 2022/11/30 11:30:47 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/05 12:43:02 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ FixedPt::FixedPt (const float flt)
    _val = roundf(ft);
  }
 
-FixedPt::FixedPt(FixedPt& fp) :  _val(fp._val )
+FixedPt::FixedPt(const FixedPt& fp) :  _val(fp._val )
 {
  
   std::cout << "copy constructor called" <<std::endl;
