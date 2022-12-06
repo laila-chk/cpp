@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 08:41:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/03 17:39:09 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/05 14:12:47 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class FixedPt
     ~FixedPt();
 
     /***************************   Methods     **********************************/
-    FixedPt(FixedPt& fp); //copy constructor
+    FixedPt(const FixedPt& fp); //copy constructor
     FixedPt& operator= (const FixedPt& fp);
 
     /*************************** comparing Operartors overloading **********************************/

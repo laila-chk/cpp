@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:23:17 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/03 17:39:21 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/05 14:12:50 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ FixedPt::FixedPt (const float flt)
    _val = roundf(ft);
  }
 
-FixedPt::FixedPt(FixedPt& fp) :  _val(fp._val )
+FixedPt::FixedPt(const FixedPt& fp) :  _val(fp._val )
 {
  
   std::cout << "copy constructor called" <<std::endl;
@@ -133,10 +133,6 @@ bool FixedPt::operator > (const FixedPt& fp) const
 
  FixedPt FixedPt::operator+ (const FixedPt& point)const 
 {
-  //the reason why we are creating a new floating point and returning it instead of this pointer like we did in 
-  //the assigenement operator, is that the result is an individual obj, op= changes the obj on the left, that's why
-  //we should change and return this, while here, not the right nor the left obj should be changed
-
   FixedPt add;
   add._val = this->_val + point._val; 
   return (add);
@@ -171,7 +167,6 @@ FixedPt FixedPt::operator/ (const FixedPt& point) const
 
 FixedPt FixedPt::operator++ (int)
 {
-  //this is eq to a.op++(int) which we are returning a new obj
   FixedPt obj = *this;
   this->_val++;
   return (obj);
@@ -185,7 +180,6 @@ FixedPt& FixedPt::operator++ ()
 
 FixedPt FixedPt::operator-- (int)
 {
-  //this is eq to a.op++(int) which we are returning a new obj
   FixedPt obj = *this;
   this->_val--;
   return (obj);
@@ -225,25 +219,3 @@ const FixedPt& FixedPt::max(const FixedPt& one, const FixedPt& two)
     return (two);
   return (one);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

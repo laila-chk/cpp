@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(std::string name): _name(name)
   std::cout << "ClapTrap " + _name + " Constructor is Called." << std::endl;
   HitPts = 10;
   EnergyPts = 10;
-  AttackDmg = 10;
+  AttackDmg = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& Clp)
