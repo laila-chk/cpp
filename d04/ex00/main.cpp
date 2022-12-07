@@ -12,31 +12,39 @@
 
 #include "Cat.hpp"
 #include "WrongCat.hpp"
-#include "WrongAnimal.hpp"
 #include "Dog.hpp"
-#include "Animal.hpp"
 
 int main() 
 {
-  const Animal* meta = new Animal();
-  const Animal* j = new Dog();
-  const Animal* i = new Cat();
-  const WrongAnimal* ii = new WrongCat();
+  const Animal* none = new Animal();
+  const Animal* puppy = new Dog();
+  const Animal* kitty = new Cat();
 
-  std::cout << j->getType() << " " << std::endl;
-  std::cout << i->getType() << " " << std::endl;
-  std::cout << i->getType() << " " << std::endl;
-  std::cout << "cat:  ";
-  i->makeSound();
+  std::cout <<"we didn't specify so: "+ none->getType() << std::endl;
+  std::cout <<"puppy is of a type: "+ puppy->getType() << std::endl;
+  std::cout <<"kitty is of a type: "+ kitty->getType() << std::endl;
 
-  std::cout << "Wrong cat:  ";
-  ii->makeSound(); 
+  std::cout << "kitty says:  ";
+  kitty->makeSound();
 
-  std::cout << "doggo:  ";
-  j->makeSound();
+
+  std::cout << "puppy says:  ";
+  puppy->makeSound();
 
   std::cout << "undefined animal :  ";
-  meta->makeSound();
+  none->makeSound();
 
+  std::cout << "*********************************************************"<<std::endl;
+  std::cout << std::endl;
+
+  std::cout << "~EXAMPLE OF WRONG ANIMALS~"<<std::endl;
+  const WrongAnimal* noAnimal = new WrongAnimal();
+  const WrongAnimal* noCat= new WrongCat();
+
+  std::cout << "a wrong animal sounds like:  ";
+  noAnimal->makeSound(); 
+
+  std::cout << "a wrong Cat sounds like:  ";
+  noCat->makeSound(); 
    return 0;
 }

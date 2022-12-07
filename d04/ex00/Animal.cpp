@@ -16,7 +16,7 @@
 Animal::Animal()
 {
   type = "Animal";
-  std::cout << "Class " +type+ " was constructed by inheritance" << std::endl;
+  std::cout << "Class " +type+ " was constructed" << std::endl;
 }
 
 Animal::Animal(const Animal& animal)

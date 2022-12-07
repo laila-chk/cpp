@@ -16,7 +16,7 @@
 WrongAnimal::WrongAnimal()
 {
   type = "WrongAnimal";
-  std::cout << "Class " +type+ " was constructed by inheritance" << std::endl;
+  std::cout << "Class " +type+ " was constructed" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& animal)
