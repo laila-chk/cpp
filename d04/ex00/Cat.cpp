@@ -13,13 +13,13 @@
 #include "Cat.hpp"
 
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
   type = "Cat";
   std::cout << "Class " +type+ " was constructed by inheritance" << std::endl;
 }
 
-Cat::Cat(const Cat& cat)
+Cat::Cat(const Cat& cat): Animal ()
 {
   this->type = cat.type;
   std::cout << "Copy constructor for "+ type+" was called." << std::endl;

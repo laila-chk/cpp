@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:13:39 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/06 18:45:10 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/06 18:41:03 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 
-Dog::Dog() : Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-  type = "Dog";
+  type = "WrongCat";
   std::cout << "Class " +type+ " was constructed by inheritance" << std::endl;
 }
 
-Dog::Dog(const Dog& dog) : Animal()
+WrongCat::WrongCat(const WrongCat& cat): WrongAnimal ()
 {
-  this->type = dog.type;
+  this->type = cat.type;
   std::cout << "Copy constructor for "+ type+" was called." << std::endl;
 }
 
-Dog& Dog::operator= (const Dog& dog)
+WrongCat& WrongCat::operator= (const WrongCat& cat)
 {
-  this->type = dog.type;
+  this->type = cat.type;
   std::cout << "copy assignement operator for "+ type+" was called." << std::endl;
   return (*this);
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
   std::cout << "Destructor for " + type +" is called" << std::endl;
 }
 
-void Dog::makeSound() const
+void WrongCat::makeSound() const
 {
-  std::cout << "Bark Barrrrk :v" << std::endl;
+  std::cout << "miaaaaaao miao :3" << std::endl;
 }

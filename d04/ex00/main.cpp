@@ -11,18 +11,32 @@
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
 #include "Dog.hpp"
-
+#include "Animal.hpp"
 
 int main() 
 {
   const Animal* meta = new Animal();
   const Animal* j = new Dog();
   const Animal* i = new Cat();
+  const WrongAnimal* ii = new WrongCat();
+
   std::cout << j->getType() << " " << std::endl;
   std::cout << i->getType() << " " << std::endl;
-  i->makeSound(); //will output the cat sound!
+  std::cout << i->getType() << " " << std::endl;
+  std::cout << "cat:  ";
+  i->makeSound();
+
+  std::cout << "Wrong cat:  ";
+  ii->makeSound(); 
+
+  std::cout << "doggo:  ";
   j->makeSound();
+
+  std::cout << "undefined animal :  ";
   meta->makeSound();
-  return 0;
+
+   return 0;
 }

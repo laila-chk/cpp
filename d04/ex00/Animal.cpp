@@ -39,8 +39,9 @@ Animal::~Animal()
 
 void Animal::makeSound() const
 {
-  std::cout << "... what animal? what sound?" << std::endl;
+    std::cout << "... what animal? what sound?" << std::endl;
 }
+
 std::string Animal::getType() const
 {
   return (this->type);
