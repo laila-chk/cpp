@@ -16,35 +16,42 @@
 
 int main() 
 {
-  const Animal* none = new Animal();
-  const Animal* puppy = new Dog();
-  const Animal* kitty = new Cat();
+  // const Animal* none = new Animal();
+  // const Animal* puppy = new Dog();
+  // const Animal* kitty = new Cat();
 
-  std::cout <<"we didn't specify so: "+ none->getType() << std::endl;
-  std::cout <<"puppy is of a type: "+ puppy->getType() << std::endl;
-  std::cout <<"kitty is of a type: "+ kitty->getType() << std::endl;
+  // std::cout <<"we didn't specify so: "+ none->getType() << std::endl;
+  // std::cout <<"puppy is of a type: "+ puppy->getType() << std::endl;
+  // std::cout <<"kitty is of a type: "+ kitty->getType() << std::endl;
 
-  std::cout << "kitty says:  ";
-  kitty->makeSound();
+  // std::cout << "kitty says:  ";
+  // kitty->makeSound();
 
 
-  std::cout << "puppy says:  ";
-  puppy->makeSound();
+  // std::cout << "puppy says:  ";
+  // puppy->makeSound();
 
-  std::cout << "undefined animal :  ";
-  none->makeSound();
+  // std::cout << "undefined animal :  ";
+  // none->makeSound();
 
-  std::cout << "*********************************************************"<<std::endl;
-  std::cout << std::endl;
+  // std::cout << "*********************************************************"<<std::endl;
+  // std::cout << std::endl;
 
-  std::cout << "~EXAMPLE OF WRONG ANIMALS~"<<std::endl;
-  const WrongAnimal* noAnimal = new WrongAnimal();
-  const WrongAnimal* noCat= new WrongCat();
+  // std::cout << "~EXAMPLE OF WRONG ANIMALS~"<<std::endl;
+  // const WrongAnimal* noAnimal = new WrongAnimal();
+  // const WrongAnimal* noCat= new WrongCat();
 
-  std::cout << "a wrong animal sounds like:  ";
-  noAnimal->makeSound(); 
+  // std::cout << "a wrong animal sounds like:  ";
+  // noAnimal->makeSound(); 
 
-  std::cout << "a wrong Cat sounds like:  ";
-  noCat->makeSound(); 
+  // std::cout << "a wrong Cat sounds like:  ";
+  // noCat->makeSound(); 
+
+  Animal *cat = new Cat();
+  // Animal *dog = new Dog();
+  Animal *a = new Animal();
+
+  *cat = *a;
+  std::cout << cat->getType() << std::endl;
    return 0;
 }

@@ -28,4 +28,12 @@ Brain::~Brain()
   std::cout << "default Destructor for Brain was called" << std::endl;
 }
 
+std::string Brain::getIdeas(int i)
+{
+  return (ideas[i]);
+}
 
+void Brain::setIdeas(int i, std::string idea)
+{
+  ideas[i] = idea;
+}

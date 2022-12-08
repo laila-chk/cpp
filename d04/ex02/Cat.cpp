@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:13:39 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/06 18:41:03 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/08 12:21:25 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,17 @@ Cat::Cat() : Animal()
 
 Cat::Cat(const Cat& cat): Animal ()
 {
-  this->type = cat.type;
+  this->CatBrain = new Brain();
+  for (int i = 0; i < 100; i++)
+    this->CatBrain->setIdeas(i, cat.CatBrain->getIdeas(i));
   std::cout << "Copy constructor for Cat was called." << std::endl;
 }
 
 Cat& Cat::operator= (const Cat& cat)
 {
+  this->CatBrain = new Brain();
+  for (int i = 0; i < 100; i++)
+    this->CatBrain->setIdeas(i, cat.CatBrain->getIdeas(i));
   std::cout << "copy assignement operator for Cat was called." << std::endl;
   this->type = cat.type;
   return (*this);
@@ -36,7 +41,7 @@ Cat& Cat::operator= (const Cat& cat)
 Cat::~Cat()
 {
   std::cout << "Destructor for " + type +" is called" << std::endl;
-  delete CatBrain;
+  delete this->CatBrain;
 }
 
 void Cat::makeSound() const

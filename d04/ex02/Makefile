@@ -4,7 +4,7 @@ Flags = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = CatAndDog 
+name = smartPet 
 
 all: $(name)
 

@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:13:39 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/06 18:45:10 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/08 12:21:51 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@ Dog::Dog() : Animal()
 
 Dog::Dog(const Dog& dog) : Animal()
 {
+  this->DogBrain = new Brain();
+  for (int i = 0; i < 100; i++)
+    this->DogBrain->setIdeas(i, DogBrain->getIdeas(i));
   std::cout << "Copy constructor for *Dog* was called." << std::endl;
   this->type = dog.type;
 }
 
 Dog& Dog::operator= (const Dog& dog)
 {
+  this->DogBrain = new Brain();
+  for (int i = 0; i < 100; i++)
+    this->DogBrain->setIdeas(i, DogBrain->getIdeas(i));
   std::cout << "copy assignement operator for *Dog*  was called." << std::endl;
   this->type = dog.type;
   return (*this);

@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:19:29 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/06 18:45:45 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/08 12:20:46 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main() 
 {
+/*
   const Animal* none = new Animal();
   const Animal* kitty = new Cat();
   const Animal* puppy = new Dog();
@@ -34,7 +35,6 @@ int main()
 
   std::cout << "*********************************************************"<<std::endl;
   std::cout << std::endl;
-/*
   std::cout << "~EXAMPLE OF WRONG ANIMALS~"<<std::endl;
   const WrongAnimal* noAnimal = new WrongAnimal();
   const WrongAnimal* noCat= new WrongCat();
@@ -47,9 +47,36 @@ int main()
 
   delete noAnimal;
   delete noCat;
-*/
   delete none;
   delete puppy;
   delete kitty;
+
+
+*/
+
+
+  Animal* bzaf[10];
+for (int i = 0; i < 10; i+=2)
+  bzaf[i] = new Cat();
+
+for (int i = 1; i < 10; i+=2)
+  bzaf[i] = new Dog();
+std::cout << "n3mlo rasna derna chi haja bihom.." << std::endl;
+
+for (int i = 1; i < 10; i++)
+delete  bzaf[i] ;
+
+  std::cout << "*********************************************************"<<std::endl;
+  
+
+  Animal *cat = new Cat();
+  Animal *a = new Animal();
+  Animal *b = new Cat();
+
+  std::cout << cat->getType() << std::endl;
+  *cat = *a;
+  std::cout << cat->getType() << std::endl;
+  *a = *b;
+  std::cout << a->getType() << std::endl;
    return 0;
 }
