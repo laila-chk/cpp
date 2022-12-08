@@ -21,13 +21,13 @@ Animal::Animal()
 
 Animal::Animal(const Animal& animal)
 {
-  this->type = animal.type;
   std::cout << "Copy constructor for "+ type+" was called." << std::endl;
+  (void)animal.type;
 }
 
 Animal& Animal::operator= (const Animal& animal)
 {
-  this->type = animal.type;
+  (void)animal.type;
   std::cout << "copy assignement operator for "+ type+" was called." << std::endl;
   return (*this);
 }

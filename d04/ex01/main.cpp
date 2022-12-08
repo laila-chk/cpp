@@ -14,6 +14,17 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 
+/*
+void  func()
+{
+  Cat c = Cat();
+  {
+    Cat c2;
+    c2 = c;
+    c2 = c;
+  }
+}
+*/
 int main() 
 {
 /*
@@ -55,18 +66,18 @@ int main()
 */
 
 
-  Animal* bzaf[10];
-for (int i = 0; i < 10; i+=2)
-  bzaf[i] = new Cat();
+//   Animal* bzaf[10];
+// for (int i = 0; i < 10; i+=2)
+//   bzaf[i] = new Cat();
 
-for (int i = 1; i < 10; i+=2)
-  bzaf[i] = new Dog();
-std::cout << "n3mlo rasna derna chi haja bihom.." << std::endl;
+// for (int i = 1; i < 10; i+=2)
+//   bzaf[i] = new Dog();
+// std::cout << "n3mlo rasna derna chi haja bihom.." << std::endl;
 
-for (int i = 1; i < 10; i++)
-delete  bzaf[i] ;
+// for (int i = 1; i < 10; i++)
+// delete  bzaf[i] ;
 
-  std::cout << "*********************************************************"<<std::endl;
+//   std::cout << "*********************************************************"<<std::endl;
   
 
   Animal *cat = new Cat();
@@ -75,8 +86,11 @@ delete  bzaf[i] ;
 
   std::cout << cat->getType() << std::endl;
   *cat = *a;
-  std::cout << cat->getType() << std::endl;
+  std::cout << b->getType() << std::endl;
   *a = *b;
   std::cout << a->getType() << std::endl;
-   return 0;
+
+//  func();
+ // system("leaks smartPet");
+  return 0;
 }

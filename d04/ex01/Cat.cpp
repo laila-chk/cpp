@@ -22,7 +22,6 @@ Cat::Cat() : Animal()
 
 Cat::Cat(const Cat& cat): Animal ()
 {
-  this->type = cat.type;
   this->CatBrain = new Brain();
   for (int i = 0; i < 100; i++)
     this->CatBrain->setIdeas(i, cat.CatBrain->getIdeas(i));
@@ -31,7 +30,8 @@ Cat::Cat(const Cat& cat): Animal ()
 
 Cat& Cat::operator= (const Cat& cat)
 {
-  this->type = cat.type;
+  if (this->CatBrain)
+    delete (this->CatBrain);
   this->CatBrain = new Brain();
 
   for (int i = 0; i < 100; i++)

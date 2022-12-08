@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:22:34 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/08 12:22:38 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/08 11:34:12 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ Animal::Animal()
 
 Animal::Animal(const Animal& animal)
 {
-  this->type = animal.type;
   std::cout << "Copy constructor for "+ type+" was called." << std::endl;
+  (void)animal.type;
 }
 
 Animal& Animal::operator= (const Animal& animal)
 {
-  this->type = animal.type;
+  (void)animal.type;
   std::cout << "copy assignement operator for "+ type+" was called." << std::endl;
   return (*this);
 }

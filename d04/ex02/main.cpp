@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:19:29 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/08 12:25:18 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/08 12:20:46 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,18 @@
 #include "WrongCat.hpp"
 #include "Dog.hpp"
 
+
 int main() 
 {
-//     const Animal* none = new Animal();
-     const Animal* kitty = new Cat();
-     const Animal* puppy = new Dog();
 
-     std::cout <<"puppy is of a type: "+ puppy->getType() << std::endl;
-     std::cout <<"kitty is of a type: "+ kitty->getType() << std::endl;
+ // const Animal* none = new Animal();
+  const Animal* kitty = new Cat();
+  const Animal* puppy = new Dog();
 
-
-     std::cout << "kitty sound: ";
-     kitty->makeSound();
-     std::cout << "puppy sound: ";
-     puppy->makeSound();
-
-     std::cout << "*********************************************************"<<std::endl;
-     std::cout << std::endl;
-     std::cout << "~EXAMPLE OF WRONG ANIMALS~"<<std::endl;
-
-     delete puppy;
-     delete kitty;
+ // std::cout <<std::endl<<"we didn't specify so: "+ none->getType() << std::endl;
+  std::cout <<"puppy is of a type: "+ puppy->getType() << std::endl;
+  std::cout <<"kitty is of a type: "+ kitty->getType() << std::endl;
 
 
-  Animal* bzaf[10];
-  for (int i = 0; i < 10; i+=2)
-    bzaf[i] = new Cat();
-
-  for (int i = 1; i < 10; i+=2)
-    bzaf[i] = new Dog();
-  std::cout << "n3mlo rasna derna chi haja bihom.." << std::endl;
-
-  for (int i = 1; i < 10; i++)
-    delete  bzaf[i] ;
-
-  std::cout << "*********************************************************"<<std::endl;
   return 0;
 }

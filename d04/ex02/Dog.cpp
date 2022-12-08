@@ -24,18 +24,16 @@ Dog::Dog(const Dog& dog) : Animal()
 {
   this->DogBrain = new Brain();
   for (int i = 0; i < 100; i++)
-    this->DogBrain->setIdeas(i, DogBrain->getIdeas(i));
+    this->DogBrain->setIdeas(i, dog.DogBrain->getIdeas(i));
   std::cout << "Copy constructor for *Dog* was called." << std::endl;
-  this->type = dog.type;
 }
 
 Dog& Dog::operator= (const Dog& dog)
 {
   this->DogBrain = new Brain();
   for (int i = 0; i < 100; i++)
-    this->DogBrain->setIdeas(i, DogBrain->getIdeas(i));
+    this->DogBrain->setIdeas(i, dog.DogBrain->getIdeas(i));
   std::cout << "copy assignement operator for *Dog*  was called." << std::endl;
-  this->type = dog.type;
   return (*this);
 }
 

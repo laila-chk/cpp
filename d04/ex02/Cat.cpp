@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:13:39 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/08 12:21:25 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/08 12:55:46 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,14 @@ Cat::Cat(const Cat& cat): Animal ()
 
 Cat& Cat::operator= (const Cat& cat)
 {
+  if (this->CatBrain)
+    delete (this->CatBrain);
   this->CatBrain = new Brain();
+
   for (int i = 0; i < 100; i++)
     this->CatBrain->setIdeas(i, cat.CatBrain->getIdeas(i));
+
   std::cout << "copy assignement operator for Cat was called." << std::endl;
-  this->type = cat.type;
   return (*this);
 }
 
