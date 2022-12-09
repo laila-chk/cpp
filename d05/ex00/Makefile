@@ -1,10 +1,10 @@
-Func = main.cpp 
+Func = main.cpp Bureaucrat.cpp
 
 Flags = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = 
+name = bureaucrat
 
 all: $(name)
 
