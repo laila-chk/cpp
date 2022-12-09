@@ -4,23 +4,34 @@
 #include <iostream>
 #include <string>
 
-class Bureaucrat : public std::exception
-{
+class Bureaucrat {
   private:
     const std::string _name;
     int _grade;
   public:
+    /*Canonical form reqs:*/
     Bureaucrat();
     Bureaucrat(std::string name, int grade);
-    Bureaucrat(const Bureaucrat& br);
-    Bureaucrat& operator =(const Bureaucrat& br);
+    Bureaucrat& operator= (const Bureaucrat& br);
     ~Bureaucrat();
+
+    /*getters and setters:*/
     std::string getName();
     int getGrade();
     void gradeUp(int grades);
     void gradeDown(int grades);
-    //overwriting the what() method of exception class:
-    const char* what() const throw();
+
+    /*a Class def*/
+    class Excep;
+
+ };
+
+
+class Bureaucrat::Excep : std::exception
+{
+ virtual const char* what() const throw ();
 };
+
+
 
 #endif
