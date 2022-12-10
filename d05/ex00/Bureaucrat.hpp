@@ -12,6 +12,7 @@ class Bureaucrat {
     /*Canonical form reqs:*/
     Bureaucrat();
     Bureaucrat(std::string name, int grade);
+    Bureaucrat(const Bureaucrat& br);
     Bureaucrat& operator= (const Bureaucrat& br);
     ~Bureaucrat();
 
@@ -22,16 +23,23 @@ class Bureaucrat {
     void gradeDown(int grades);
 
     /*a Class def*/
-    class Excep;
+    class GradeTooHighException;
+    class GradeTooLowException;
 
  };
 
-
-class Bureaucrat::Excep : std::exception
+class Bureaucrat::GradeTooLowException: public std::exception
 {
- virtual const char* what() const throw ();
+  public:
+  const char* what() const throw ();
 };
 
+
+class Bureaucrat::GradeTooHighException:  public std::exception
+{
+  public:
+  const char* what() const throw ();
+};
 
 
 #endif
