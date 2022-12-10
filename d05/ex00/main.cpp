@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 11:54:44 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/10 18:30:32 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/10 19:07:42 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ int main()
 
  try {
   
-  Bureaucrat woman("coffee", 0);
+  Bureaucrat woman("coffee", 11);
   }
   catch (std::exception& e)
   {
     std::cout << e.what() << std::endl;
   }
 
+  std::cout << man << std::endl;
 }

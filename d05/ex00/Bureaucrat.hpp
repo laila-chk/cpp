@@ -16,11 +16,12 @@ class Bureaucrat {
     Bureaucrat& operator= (const Bureaucrat& br);
     ~Bureaucrat();
 
+
     /*getters and setters:*/
-    std::string getName();
-    int getGrade();
-    void gradeUp(int grades);
-    void gradeDown(int grades);
+    std::string getName()const;
+    int getGrade()const;
+    void gradeUp();
+    void gradeDown();
 
     /*a Class def*/
     class GradeTooHighException;
@@ -35,11 +36,12 @@ class Bureaucrat::GradeTooLowException: public std::exception
 };
 
 
-class Bureaucrat::GradeTooHighException:  public std::exception
+class Bureaucrat::GradeTooHighException: public std::exception
 {
   public:
   const char* what() const throw ();
 };
 
+std::ostream& operator<< (std::ostream& os, const Bureaucrat& br);
 
 #endif
