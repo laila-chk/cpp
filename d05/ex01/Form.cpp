@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:02:11 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/10 22:05:27 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/11 21:23:17 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Form::Form(): _name("Unspecified"), _signed(false), _execGrade(1), _signGrade(1)
 {
-  std::cout << "Form Constructor called without specifications, initialasing required grades with : 1";
+  std::cout << "Form Constructor called without specifications, initialasing required grades with : 1 ";
   std::cout << "and name with : Unspecified" << std::endl;
 }
 
@@ -55,6 +55,11 @@ int Form::getSingGrade() const
   return (this->_signGrade);
 }
 
+bool Form::getStatus() const
+{
+  return (this->_signed);
+}
+
 const char* Form::GradeTooLowException::what () const throw()
 {
    return("Grade Too Low Exception");
@@ -65,3 +70,21 @@ const char* Form::GradeTooHighException::what () const throw()
    return("Grade Too High Exception");
 }
 
+void Form::beSigned(Bureaucrat& br)
+{
+  if (br.getGrade() <= this->getSingGrade())
+    _signed = true ;
+  else
+    throw GradeTooLowException();
+}
+
+std::ostream& operator<< (std::ostream& os, const Form& br)
+{
+  std::string status;
+  if (br.getStatus())
+    status = "signed";
+  else
+    status = "not signed";
+  os << "*name: " << br.getName()<< std::endl << "*status: "<< status << std::endl<< "*execution Grade: "<< br.getExecGrade()<< std::endl<< "*signing Grade: "<< br.getSingGrade();
+    return(os);
+}

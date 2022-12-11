@@ -22,13 +22,14 @@ class Form
     std::string getName() const ;
     int getExecGrade() const;
     int getSingGrade() const;
+    bool getStatus() const;
 
     /* --------------- exceptions   -------------------*/
     class GradeTooLowException;
     class GradeTooHighException;
 
     /* --------------- exceptions   -------------------*/
-    void beSigned(Bureaucrat& br);
+    void beSigned(class Bureaucrat& br);
 };
 
 class Form::GradeTooLowException: public std::exception
