@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 21:02:11 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/11 21:23:17 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/12 19:02:07 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ const char* Form::GradeTooHighException::what () const throw()
 
 void Form::beSigned(Bureaucrat& br)
 {
-  if (br.getGrade() <= this->getSingGrade())
+  if (br.getGrade() <= _signGrade)
     _signed = true ;
   else
-    throw GradeTooLowException();
+     throw Form::GradeTooLowException();
 }
 
 std::ostream& operator<< (std::ostream& os, const Form& br)

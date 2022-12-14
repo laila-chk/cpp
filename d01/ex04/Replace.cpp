@@ -44,3 +44,32 @@ void  ReplaceString(std::string file, std::string s1, std::string s2)
   }
 
 }
+a = 5;
+b = 2;
+ while (a--)
+{
+    print_space(a);
+    count << "/";
+    print_space(b);
+    count << "\" << std::endl;
+    b += 2;
+}
+std::cout<<"    /\"
+
+   /  \
+  /    \
+ /      \
+/        \
+   |  |
+   |  |
+
+
+
+    /\      4-0
+   /  \     3-2
+  /    \    2-4
+ /      \   1-6
+
+
+    /\
+   /  \

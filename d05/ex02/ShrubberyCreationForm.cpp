@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:30:13 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/12 18:42:25 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/12 19:14:17 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
   if (this->getStatus() && executor.getGrade() <= this->getExecGrade())
   {
-    std::cout << " ______________ "<< std::endl;
     std::ofstream myFile(_target + "_shrubbery");
     std::string spaces = " ";
     int i = 10;
@@ -67,9 +66,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
        myFile << "        ~|  |~" << std::endl;
        myFile << "         |  |" << std::endl;
   }
+  else if (!this->getStatus())
+    throw Form::NotSignedException();
   else
-  {
-    std::cout << " =---========="<< std::endl;
     throw Form::GradeTooLowException();
-  }
 }

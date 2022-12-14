@@ -18,6 +18,7 @@ class Bureaucrat {
     ~Bureaucrat();
 
 
+    void executeForm(class Form const & form);
     /*getters and setters:*/
     std::string getName()const;
     int getGrade()const;

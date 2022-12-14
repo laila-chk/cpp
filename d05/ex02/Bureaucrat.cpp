@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:51:03 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/12 12:50:58 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/13 18:01:47 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,13 @@ void Bureaucrat::gradeUp()
 
 const char* Bureaucrat::GradeTooLowException::what () const throw()
 {
-   return("Grade Too Low Exception");
+  return("Grade Too Low Exception");
 }
 
 
 const char* Bureaucrat::GradeTooHighException::what () const throw()
 {
-   return("Grade Too High Exception");
+  return("Grade Too High Exception");
 }
 
 std::ostream& operator<< (std::ostream& os, const Bureaucrat& br)
@@ -88,8 +88,24 @@ std::ostream& operator<< (std::ostream& os, const Bureaucrat& br)
 
 void Bureaucrat::signForm(Form& form)
 {
-  if (this->_grade <= form.getSingGrade())
+  if (this->_grade <= form.getSingGrade() && form.getStatus())
     std::cout << this->_name << " signed " << form.getName() << std::endl;
   else
-    std::cout << this->_name << " couldn't sign " << form.getName() << " because Signing grade: " << form.getSingGrade() << " and Bureaucrat's grade is: "<< _grade << std::endl;
+  {
+    std::cout << this->_name << " couldn't sign " << form.getName() << " because: ";
+    if (this->_grade > form.getSingGrade())
+      std::cout << "Bureaucrat's grade too Low." << std::endl;
+    else
+      std::cout << "beSigned() function wasn't called first." << std::endl;
+  }
+}
+
+void Bureaucrat::executeForm(Form const & form)
+{
+  if (_grade <= form.getExecGrade() && form.getStatus())
+    std::cout << this->_name << " executed "<< form.getName()<< std::endl;
+  else if (!form.getStatus())
+    std::cout << " Form is not signed, "<<_name<< " can't execute it." << std::endl;
+  else
+    std::cout << _name<< "'s grade is too Low, Can't execute this Form." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:51:03 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/12 19:28:30 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/13 18:02:30 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,18 @@ std::ostream& operator<< (std::ostream& os, const Bureaucrat& br)
 
 void Bureaucrat::signForm(Form& form)
 {
-  if (this->_grade <= form.getSingGrade()  && form.getStatus())
+  if (this->_grade <= form.getSingGrade() && form.getStatus())
     std::cout << this->_name << " signed " << form.getName() << std::endl;
   else
-    std::cout << this->_name << " couldn't sign " << form.getName() << " because Signing grade: " << form.getSingGrade() << " and Bureaucrat's grade is: "<< _grade << std::endl;
+  {
+    std::cout << this->_name << " couldn't sign " << form.getName() << " because: ";
+    if (this->_grade > form.getSingGrade())
+      std::cout << "Bureaucrat's grade too Low." << std::endl;
+    else
+      std::cout << "beSigned() function wasn't called first." << std::endl;
+  }
 }
+
 void Bureaucrat::executeForm(Form const & form)
 {
   if (_grade <= form.getExecGrade() && form.getStatus())

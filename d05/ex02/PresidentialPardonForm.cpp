@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:33:00 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/12 18:18:13 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/12 19:17:47 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ PresidentialPardonForm::PresidentialPardonForm(): Form("PresidentialPardonForm",
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 5, 25), _target(target) 
 {
-  
+
   std::cout << "PresidentialPardonForm constructor called " << std::endl;
 }
 
@@ -43,7 +43,9 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
   if (this->getStatus() && executor.getGrade() <= this->getExecGrade())
-    std::cout << "dooo smth"<<std::endl;
-     else
+  std::cout << _target<<" has been pardoned by Zaphod Beeblebrox."<<std::endl;
+  else if (!this->getStatus())
+    throw Form::NotSignedException();
+  else
     throw Form::GradeTooLowException();
 }

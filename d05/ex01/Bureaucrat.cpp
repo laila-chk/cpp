@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:51:03 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/11 21:21:14 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/13 17:50:08 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& br): _name(br._name), _grade(br._grade)
 {
+  std::cout << "Copy constructor Called." << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator= (const Bureaucrat& br)
@@ -39,7 +40,7 @@ Bureaucrat& Bureaucrat::operator= (const Bureaucrat& br)
 
 Bureaucrat::~Bureaucrat()
 {
-  std::cout << "Bureaucrat Retired." << std::endl;
+  std::cout << "~Bureaucrat Retired." << std::endl;
 }
 
 std::string Bureaucrat::getName() const
@@ -71,13 +72,13 @@ void Bureaucrat::gradeUp()
 
 const char* Bureaucrat::GradeTooLowException::what () const throw()
 {
-   return("Grade Too Low Exception");
+  return("Grade Too Low Exception");
 }
 
 
 const char* Bureaucrat::GradeTooHighException::what () const throw()
 {
-   return("Grade Too High Exception");
+  return("Grade Too High Exception");
 }
 
 std::ostream& operator<< (std::ostream& os, const Bureaucrat& br)
@@ -88,8 +89,15 @@ std::ostream& operator<< (std::ostream& os, const Bureaucrat& br)
 
 void Bureaucrat::signForm(Form& form)
 {
-  if (this->_grade <= form.getSingGrade())
+  if (this->_grade <= form.getSingGrade() && form.getStatus())
     std::cout << this->_name << " signed " << form.getName() << std::endl;
   else
-    std::cout << this->_name << " couldn't sign " << form.getName() << std::endl;
+  {
+    std::cout << this->_name << " couldn't sign " << form.getName() << " because: ";
+    if (this->_grade > form.getSingGrade())
+      std::cout << "Bureaucrat's grade too Low." << std::endl;
+    else
+      std::cout << "beSigned() function wasn't called first." << std::endl;
+  }
+
 }

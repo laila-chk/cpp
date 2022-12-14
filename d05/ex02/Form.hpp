@@ -16,7 +16,7 @@ class Form
     Form(const std::string name, const int execGrade, const int signGrade);
     Form(const Form& form);
     Form& operator= (const Form& form);
-    ~Form();
+    virtual ~Form();
 
     /* --------------- getters and setters-------------*/
     std::string getName() const ;
@@ -39,20 +39,20 @@ class Form
 class Form::GradeTooLowException: public std::exception
 {
   public:
-  const char* what() const throw ();
+    const char* what() const throw ();
 };
 
 
 class Form::GradeTooHighException: public std::exception
 {
   public:
-  const char* what() const throw ();
+    const char* what() const throw ();
 };
 
 class Form::NotSignedException: public std::exception
 {
   public:
-  const char* what() const throw ();
+    const char* what() const throw ();
 };
 
 std::ostream& operator<< (std::ostream& os, const Form& br);
