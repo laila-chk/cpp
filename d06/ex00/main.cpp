@@ -1,46 +1,18 @@
-#include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/14 17:29:40 by lchokri           #+#    #+#             */
+/*   Updated: 2022/12/14 17:29:43 by lchokri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "getType.hpp"
 
 // char - int - double - float
-int charType (std::string input)
-{
-  unsigned int i = 0;
-  while (isalpha(input[i]))
-    i++;
-  if (i == input.size())
-    return (1);
-  return (-1);
-}
-
-int  getType(std::string input)
-{
-  unsigned int i = 0;
-
-  if (input[i] == '-' || input[i] == '+')
-  {
-    if (input.size() == 1)
-      return (-1);
-    i++;
-  }
-  while (isdigit(input[i]))
-    i++;
-  if (i == 0)
-    return (charType(input));
-  if (input[i] == '\0' )
-    return (1);
-  if (input[i] == '.')
-  {
-    i++;
-    while (isdigit(input[i]))
-      i++;
-    if(input[i] == 'f')
-      return (3);
-    if(input[i] == '\0')
-      return (2);
-  }
-  if(!isdigit(input[i]) && input[i] != '.' && i != 0)
-    return  (-1);
-  return (-2);
-}
 int main(int ac, char **av)
 {
   if (ac != 2)
@@ -49,5 +21,23 @@ int main(int ac, char **av)
     return (1);
   }
   std::string input = av[1];
-  std::cout << "type: "<< getType(input);
+
+  const char *str = input.c_str();
+
+  float toFlt= atof(str);
+  if (toFlt > 32 && toFlt <127)
+    std::cout << "char: "<< static_cast<char>(toFlt)<< std::endl;
+  else
+    std::cout << "char: Non displayable"<<std::endl;
+  std::cout<< "int: "<< static_cast<int>(toFlt)<< std::endl;
+  if (getType(input) > 1)
+  {
+    std::cout<< "float: "<< toFlt <<"f"<< std::endl;
+    std::cout<< "double: "<< toFlt  << std::endl;
+  }
+  else
+  {
+    std::cout<< "float: "<< toFlt <<".0f"<< std::endl;
+    std::cout<< "double: "<< toFlt <<".0" << std::endl;
+  }
 }

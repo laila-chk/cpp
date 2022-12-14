@@ -1,14 +1,14 @@
-SRC = main.cpp Base.cpp
+SRC = main.cpp getType.cpp
 
 Flg = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name =Identify 
+name = convert 
 
 all: $(name)
 
-$(name) : $(SRC)
+$(name) : $(SRC) 
 	$(CC) $(Flg) $(SRC) -o $(name)
 
 fclean:
