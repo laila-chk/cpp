@@ -36,10 +36,10 @@ Base* generate(void)
 void identify(Base* p)
 {
   Base *a = dynamic_cast<A*>(p);
-  if (a == nullptr)
+  if (a == NULL)
   {
     a = dynamic_cast<B*>(p);
-    if (a == nullptr)
+    if (a == NULL)
       std::cout << "type C" << std::endl;
     else 
       std::cout << "type B" << std::endl;
