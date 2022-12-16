@@ -20,7 +20,7 @@ Base::~Base()
 
 Base* generate(void)
 {
-  switch (rand() % 3)
+  switch (time(0) % 3)
   {
     case 0:
       return (new A);
@@ -54,14 +54,14 @@ void identify(Base& p)
   {
     Base& k = dynamic_cast<A&>(p);
     std::cout << "Type A." << std::endl;
-    static_cast<void>(k);
+    (void) (k);
   }
   catch (std::bad_cast& e){}
   try
   {
     Base& k = dynamic_cast<B&>(p);
     std::cout << "Type B." << std::endl;
-    static_cast<void>(k);
+    (void)(k);
 
   }
   catch (std::bad_cast& e){}
@@ -69,7 +69,7 @@ void identify(Base& p)
   {
     Base& k = dynamic_cast<C&>(p);
     std::cout << "Type C." << std::endl;
-    static_cast<void>(k);
+    (void)(k);
   }
   catch (std::bad_cast& e){}
 

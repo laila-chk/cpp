@@ -3,14 +3,16 @@
 
 #include <iostream>
 
-template <typename T> void swap(T& a, T& b) 
+template <typename T>
+void swap(T& a, T& b) 
 {
   T hold = a;
   a = b;
   b = hold;
 }
 
-template <typename T> T min(T a, T b) 
+template <typename T>
+T& min(T& a, T& b) 
 {
   if (a < b)
     return (a);
@@ -18,7 +20,7 @@ template <typename T> T min(T a, T b)
 }
 
 template <typename T> 
-T max(T a, T b)
+T& max(T& a, T& b)
 {
   if (a > b)
     return (a);

@@ -5,17 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 19:30:01 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/14 22:00:06 by lchokri          ###   ########.fr       */
+/*   Created: 2022/12/15 22:49:38 by lchokri           #+#    #+#             */
+/*   Updated: 2022/12/15 23:32:09 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#include "iter.hpp"
+
+template <typename T>
+void prt(const T& el)
+{
+  std::cout << el << std::endl;
+}
 
 int main()
 {
-  Base *x = generate();
+  int x[3] = {7, 8, 200};
 
-  identify(x);
-  identify(*x);
+  char y[4] = {'a', 'b', 'x', 'k'};
+
+  iter(x, 3, &prt);
+  std::cout << "--------------------" << std::endl;
+  iter(y, 4, &prt);
 }
