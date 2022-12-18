@@ -1,0 +1,22 @@
+#ifndef SPAN_HPP
+#define SPAN_HPP
+
+#include <iostream>
+#include <vector>
+
+class Span {
+    unsigned int _N; 
+    std::vector<int> vec;
+  public:
+    /*     Canonical Form:     */
+    Span();
+    Span(unsigned int N);
+    Span(const Span& sp);
+    Span& operator= (const Span& sp);
+
+    /*     methods:     */
+    void addNumber(int n);
+};    
+
+
+#endif
