@@ -13,6 +13,7 @@ class Span {
     Span(unsigned int N);
     Span(const Span& sp);
     Span& operator= (const Span& sp);
+    ~Span();
 
     /*     methods:     */
     void addNumber(int n);

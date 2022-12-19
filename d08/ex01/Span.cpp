@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 19:11:06 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/19 01:16:03 by lchokri          ###   ########.fr       */
+/*   Updated: 2022/12/19 14:39:05 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ Span& Span::operator= (const Span& sp)
   copy(sp.vec.begin(), sp.vec.end(), this->vec.begin());
   return (*this);
 }
+
+Span::~Span(){}
 
 void Span::addNumber(int n)
 {

@@ -3,16 +3,15 @@
 
 #include <iostream>
 #include <deque>
+#include <stack>
+#include <string>
 
 template<class T, class cont = std::deque<T>> 
-class MutantStack {
-  
+class MutantStack : public std::stack<T, std::deque<T>>
+{
   public:
-    MutantStack();
-    MutantStack();
-    MutantStack();
-    MutantStack();
+    class iterator :public std::deque<T>::iterator<T>
+  {};
 };
-}
 
 #endif
