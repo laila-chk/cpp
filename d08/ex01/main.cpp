@@ -5,30 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/18 15:17:47 by lchokri           #+#    #+#             */
-/*   Updated: 2022/12/18 19:01:11 by lchokri          ###   ########.fr       */
+/*   Created: 2022/12/18 23:10:14 by lchokri           #+#    #+#             */
+/*   Updated: 2022/12/19 00:35:24 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include <iostream>
+#include "Span.hpp"
 
-
-int main()
+int main() 
 {
-  std::vector<int> vec;
-  std::array<int, 5>arr = {1, 3, 5, 7, 9};
-
-  for (int i = 0; i <= 8; i+=2)
-    vec.push_back(i);
-
-  try 
-  {
-     std::cout << easyfind(arr, 7) << std::endl;
-     std::cout << easyfind(vec, 1) << std::endl;
-     
-  }
-  catch (std::exception& e)
-  {
-    std::cout << "not found!!" << std::endl;
-  };
+  Span sp = Span(5);
+  sp.addNumber(6);
+  sp.addNumber(3);
+  sp.addNumber(17);
+  sp.addNumber(9);
+  sp.addNumber(11);
+  std::cout << sp.shortestSpan() << std::endl;
+  std::cout << sp.longestSpan() << std::endl;
+  return 0; 
 }

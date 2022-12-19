@@ -16,6 +16,11 @@ class Span {
 
     /*     methods:     */
     void addNumber(int n);
+    int shortestSpan();
+    int longestSpan();
+    template<typename T> 
+    void addRange(T& data, int a, int e);
+    void addRange(int pos, int arrStart, int arrEnd);
 };    
 
 
