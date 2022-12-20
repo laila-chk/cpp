@@ -6,6 +6,10 @@
 #include <stack>
 #include <string>
 #include <iterator>
+#include <vector>
+
+
+
 
 
 template<class T, class cont = std::deque<T> > 
