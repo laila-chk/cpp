@@ -4,7 +4,7 @@ Flg = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-name = easyfind 
+name = RPN 
 
 all: $(name)
 
@@ -13,5 +13,7 @@ $(name) : $(SRC)
 
 fclean:
 		rm -rf $(name)
+
+clean: fclean
 
 re: fclean all
