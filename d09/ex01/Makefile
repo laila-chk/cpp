@@ -1,4 +1,4 @@
-SRC = main.cpp
+SRC = main.cpp  RPN.cpp
 
 Flg = -Wall -Wextra -Werror -std=c++98
 
