@@ -25,25 +25,38 @@ void parse_arg(int ac, char **av)
       oper++;
   }
   if (digits - oper != 1) {
-    std::cout << "Error: problem can't be solved, wrong format." << std::endl;
+    std::cout << "Error: problem can't be solved, bad format." << std::endl;
     exit (0);
   }
 }
 
 int main(int ac, char **av)
 {
+  int tmp = 0;
   std::stack<int> my_stack;
   parse_arg(ac, av);
   for (int i = 0; av[1][i]; i++)
   {
     if(isdigit(av[1][i]))
       my_stack.push(av[1][i] - '0');
-  for (std::stack<int>::iterator it = my_stack.begin(); it != my_stack.end(); it++)
-    std::cout << *it << std::endl;
+    else if (av[1][i] == '/' || av[1][i] == '*' || av[1][i] == '-' || av[1][i] == '+' )
+    {
+      tmp = my_stack.top();
+      my_stack.pop();
+      if (av[1][i] == '/')
+      tmp = my_stack.top() / tmp ;
+      if (av[1][i] == '*')
+      tmp = my_stack.top() * tmp ;
+      if (av[1][i] == '-')
+      tmp = my_stack.top() - tmp ;
+      if (av[1][i] == '+')
+      tmp = my_stack.top() + tmp ;
+      my_stack.pop();
+      my_stack.push(tmp);
+    }
   }
-   while (!my_stack.empty())
-  {
-     std::cout << ' ' << my_stack.top();
-     my_stack.pop();
-  }
+  if (my_stack.size() != 1)
+    std::cout << "Error: invalid expression!" << std::endl;
+  else
+    std::cout << my_stack.top() << std::endl;
 }
