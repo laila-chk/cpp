@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 13:21:50 by lchokri           #+#    #+#             */
-/*   Updated: 2023/03/27 13:28:09 by lchokri          ###   ########.fr       */
+/*   Updated: 2023/03/27 13:37:52 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int main(int ac, char **av)
 			my_stack.push(av[1][i] - '0');
 		else if (av[1][i] == '/' || av[1][i] == '*' || av[1][i] == '-' || av[1][i] == '+' )
 		{
+			if (my_stack.size() < 2 )
+			{
+				std::cout << "Error: bad format!" << std::endl;
+				exit (0);
+			}
 			tmp = my_stack.top();
 			my_stack.pop();
 			if (av[1][i] == '/')
