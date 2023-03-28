@@ -1,4 +1,4 @@
-SRC = main.cpp
+SRC = main.cpp PmergeMe.cpp
 
 Flg = -Wall -Wextra -Werror -std=c++98
 
