@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:20:46 by lchokri           #+#    #+#             */
-/*   Updated: 2023/03/25 14:21:22 by lchokri          ###   ########.fr       */
+/*   Updated: 2023/03/28 18:06:06 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ void	find_and_calc(std::map<int, float> data, int key, std::string val)
 	{
 		std::map<int, float>::iterator it = data.end();
 		it = data.lower_bound(key);
+		if (it->first != key && it != data.begin())
+			--it;
 		if (it != data.end())
 			std::cout << date <<" => " << value <<" = "<< it->second *  value << std::endl;
 	}
