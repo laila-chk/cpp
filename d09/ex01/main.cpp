@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 13:21:50 by lchokri           #+#    #+#             */
-/*   Updated: 2023/03/27 13:37:52 by lchokri          ###   ########.fr       */
+/*   Updated: 2023/03/29 16:46:52 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,14 @@ int main(int ac, char **av)
 			tmp = my_stack.top();
 			my_stack.pop();
 			if (av[1][i] == '/')
+			{
+				if (tmp == 0)
+				{
+					std::cout << "Error: division on 0." << std::endl;
+					exit(0);
+				}
 				tmp = my_stack.top() / tmp ;
+			}
 			if (av[1][i] == '*')
 				tmp = my_stack.top() * tmp ;
 			if (av[1][i] == '-')

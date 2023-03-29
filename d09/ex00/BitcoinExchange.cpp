@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:20:46 by lchokri           #+#    #+#             */
-/*   Updated: 2023/03/29 14:31:34 by lchokri          ###   ########.fr       */
+/*   Updated: 2023/03/29 15:50:45 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 int check_date(std::string& date, int ky)
 {
 	std::string::iterator it = date.end() - 1;
-	while (*it == ' ' || *it == '\t')
+	while (it != date.begin() && (*it == ' ' || *it == '\t'))
 		date.erase(it--);
+	it = date.begin();
+	while (*it == ' ')
+        date.erase(it++);
 	if ((date.length() != 10 || date.compare(5,2, "12") > 0 || date.compare(8,2, "31") > 0 ||
 				date.compare(5,2, "00") <= 0 || date.compare(8,2, "00") <= 0))
 	{
