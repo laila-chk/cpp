@@ -1,6 +1,6 @@
 SRC = main.cpp BitcoinExchange.cpp
 
-Flg = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+Flg = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 
 CC = c++
 

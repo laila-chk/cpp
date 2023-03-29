@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:20:46 by lchokri           #+#    #+#             */
-/*   Updated: 2023/03/28 18:06:06 by lchokri          ###   ########.fr       */
+/*   Updated: 2023/03/29 14:31:34 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int check_date(std::string& date, int ky)
 		{
 			if (date.length())
 				std::cout << "Error: bad input => " << date<< std::endl;
-			else
-				std::cout << "Error: date is missing!" << std::endl;
 			return 0;
 		}
 	}
@@ -51,6 +49,7 @@ bool is_header(std::string line)
 
 void ft_parse_data(std::map<int, float>& data)
 {
+	char* rem;
 	int first_line = 1;
 	std::string line;
 	std::string date;
@@ -74,7 +73,7 @@ void ft_parse_data(std::map<int, float>& data)
 				int mkey = 0;
 				if (value.length())
 				{
-					float mval = std::stof(value);
+					double mval = strtod (value.c_str(), &rem);
 					date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
 					std::stringstream key(date);
 					key >> mkey;
@@ -98,13 +97,14 @@ std::string key_to_date(int key)
 void	find_and_calc(std::map<int, float> data, int key, std::string val)
 {
 	std::string date;
+	char* rem;
 	date = key_to_date(key);
 	if (!val.length())
 	{
 		std::cout << "Error: value should be submitted." << std::endl;
 		return;
 	}
-	int value = stof(val);
+	double value = strtod (val.c_str(), &rem);
 	if (value < 0)
 		std::cout << "Error: value not a positive number." << std::endl;
 	else if ( value > 1000)
@@ -112,11 +112,36 @@ void	find_and_calc(std::map<int, float> data, int key, std::string val)
 	else
 	{
 		std::map<int, float>::iterator it = data.end();
+		--it;
+		if (it->first < key)
+		{
+			std::cout << "Error: no data found "<< std::endl;
+			return;
+		}
+		it = data.begin();
+		if (it->first > key)
+		{
+			std::cout << "Error: no data found "<< std::endl;
+			return;
+		}
 		it = data.lower_bound(key);
 		if (it->first != key && it != data.begin())
 			--it;
 		if (it != data.end())
 			std::cout << date <<" => " << value <<" = "<< it->second *  value << std::endl;
+	}
+}
+
+void clean_val(std::string& val)
+{
+	std::string::iterator it = val.begin();
+	while (*it == ' ')
+		val.erase(it++);
+	while (it != val.end() )
+	{
+		if (*it == ',')
+			val.replace(it, it+1, ".");
+		++it;
 	}
 }
 
@@ -136,6 +161,7 @@ void	ft_parse_file(std::string input, std::map<int, float> data)
 			std::stringstream redir(line);
 			getline(redir, date, '|');
 			getline(redir, val, '|');
+			clean_val(val);
 			if (check_date(date, 0) )
 			{
 				int mkey;
