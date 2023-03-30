@@ -21,6 +21,10 @@ int main(int ac, char **av)
 		return 1;
 	}
 	ft_parse_data (data);
+	if (!data.size()) { 
+		std::cout << "Error: data file is empty!" << std::endl;
+		return 1;
+		}
 	ft_parse_file(av[1], data);
 } 
 

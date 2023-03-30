@@ -20,18 +20,17 @@ int check_date(std::string& date, int ky)
 	it = date.begin();
 	while (*it == ' ')
         date.erase(it++);
-	if ((date.length() != 10 || date.compare(5,2, "12") > 0 || date.compare(8,2, "31") > 0 ||
-				date.compare(5,2, "00") <= 0 || date.compare(8,2, "00") <= 0))
+	if ((date.length() != 10 || date.compare(5,2, "12") > 0 || date.compare(8,2, "31") > 0 || date.compare(5,2, "00") <= 0 || date.compare(8,2, "00") <= 0))
 	{
 		if (ky)
 		{
-			std::cout<< date << "Error: Wrong date format in data file!" << std::endl;
+			std::cout << "Error: Wrong date format in data file!" << std::endl;
 			exit(0) ;
 		}
 		else
 		{
 			if (date.length())
-				std::cout << "Error: bad input => " << date<< std::endl;
+				std::cout << "Error: bad input => " << date << std::endl;
 			return 0;
 		}
 	}
@@ -42,6 +41,8 @@ bool is_header(std::string line)
 {
 	int i;
 	int n = line.length();
+	if (n == 0)
+		return false;
 	for (i = 0; i < n; i++)
 	{
 		if (isdigit(line[i]))
@@ -77,8 +78,8 @@ void ft_parse_data(std::map<int, float>& data)
 				if (value.length())
 				{
 					double mval = strtod (value.c_str(), &rem);
-									date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
-								   	std::stringstream key(date);
+					date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
+					std::stringstream key(date);
 					key >> mkey;
 					data[mkey] = mval;
 				}
@@ -116,21 +117,13 @@ void	find_and_calc(std::map<int, float> data, int key, std::string val)
 		std::cout << "Error: value too large. " << std::endl;
 	else
 	{
-		std::map<int, float>::iterator it = data.end();
-		--it;
-		if (it->first < key)
-		{
-			std::cout << "Error: no data found "<< std::endl;
-			return;
-		}
-		it = data.begin();
+		std::map<int, float>::iterator it = data.begin();
 		if (it->first > key)
 		{
 			std::cout << "Error: no data found "<< std::endl;
 			return;
 		}
-		it = data.lower_bound(key);
-		if (it->first != key && it != data.begin())
+		it = data.upper_bound(key);
 			--it;
 		if (it != data.end())
 			std::cout << date <<" => " << value <<" = "<< it->second *  value << std::endl;
