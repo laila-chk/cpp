@@ -6,7 +6,7 @@
 /*   By: lchokri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:20:46 by lchokri           #+#    #+#             */
-/*   Updated: 2023/03/29 15:50:45 by lchokri          ###   ########.fr       */
+/*   Updated: 2023/03/30 13:47:25 by lchokri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void ft_parse_data(std::map<int, float>& data)
 				if (value.length())
 				{
 					double mval = strtod (value.c_str(), &rem);
-					date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
-					std::stringstream key(date);
+									date.erase(std::remove(date.begin(), date.end(), '-'), date.end());
+								   	std::stringstream key(date);
 					key >> mkey;
 					data[mkey] = mval;
 				}
@@ -108,7 +108,9 @@ void	find_and_calc(std::map<int, float> data, int key, std::string val)
 		return;
 	}
 	double value = strtod (val.c_str(), &rem);
-	if (value < 0)
+	if (rem[0] != '\0' )
+		std::cout << "Error: bad format." << std::endl;
+	else if (value < 0)
 		std::cout << "Error: value not a positive number." << std::endl;
 	else if ( value > 1000)
 		std::cout << "Error: value too large. " << std::endl;
@@ -155,6 +157,7 @@ void	ft_parse_file(std::string input, std::map<int, float> data)
 	std::string val;
 	std::ifstream file(input);
 	int first_line = 1;
+	if (file.fail()) { std::cout << "Error: couldn't open file to get values, exiting.." << std::endl; exit(0) ;}
 	while (getline(file, line) )
 	{
 		if (first_line && is_header(line))
