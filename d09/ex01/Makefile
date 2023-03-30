@@ -1,6 +1,6 @@
 SRC = main.cpp  RPN.cpp
 
-Flg = -Wall -Wextra -Werror -std=c++98
+Flg = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 CC = c++
 
