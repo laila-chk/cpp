@@ -24,7 +24,7 @@ int check_date(std::string& date, int ky)
 	{
 		if (ky)
 		{
-			std::cout << "Error: Wrong date format in data file!" << std::endl;
+			std::cout<< date << "Error: Wrong date format in data file!" << std::endl;
 			exit(0) ;
 		}
 		else

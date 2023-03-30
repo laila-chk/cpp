@@ -13,5 +13,6 @@ $(name) : $(SRC)
 
 fclean:
 		rm -rf $(name)
+clean: fclean
 
 re: fclean all
